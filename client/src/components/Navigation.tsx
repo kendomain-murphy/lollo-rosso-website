@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
+import logo from "@assets/lollo-rosso-logo_1760011336039.jpg";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -33,10 +34,10 @@ export function Navigation() {
         <div className="flex items-center justify-between h-16">
           <button
             onClick={() => scrollToSection("hero")}
-            className="font-serif text-2xl font-bold hover-elevate active-elevate-2 px-2 py-1 rounded-md"
+            className="hover-elevate active-elevate-2 px-2 py-1 rounded-md"
             data-testid="button-logo"
           >
-            Lollo Rosso
+            <img src={logo} alt="Lollo Rosso" className="h-10 w-auto" />
           </button>
 
           <div className="hidden md:flex items-center gap-8">

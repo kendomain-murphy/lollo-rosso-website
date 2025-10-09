@@ -3,6 +3,7 @@ import { SiInstagram } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import logo from "@assets/lollo-rosso-logo_1760011336039.jpg";
 
 export function Footer() {
   const [email, setEmail] = useState("");
@@ -25,7 +26,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
-            <h3 className="font-serif text-2xl font-bold mb-4" data-testid="text-footer-brand">Lollo Rosso</h3>
+            <img src={logo} alt="Lollo Rosso" className="h-16 w-auto mb-4" data-testid="img-footer-logo" />
             <p className="text-sm text-muted-foreground mb-4">
               Experience the finest Asian fusion cuisine with bowl meals, sushi, and dimsums.
             </p>

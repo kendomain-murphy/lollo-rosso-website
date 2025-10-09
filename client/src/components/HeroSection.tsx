@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import heroImage from "@assets/stock_images/elegant_dining_table_d6319dd3.jpg";
+import logo from "@assets/lollo-rosso-logo_1760011336039.jpg";
 
 export function HeroSection() {
   const scrollToSection = (id: string) => {
@@ -18,9 +19,9 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
       
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6" data-testid="text-hero-title">
-          Lollo Rosso
-        </h1>
+        <div className="flex justify-center mb-8">
+          <img src={logo} alt="Lollo Rosso" className="h-32 md:h-48 w-auto" data-testid="img-hero-logo" />
+        </div>
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto" data-testid="text-hero-subtitle">
           Experience the finest Asian fusion cuisine with artisanal bowl meals, premium sushi, and authentic dimsums
         </p>
