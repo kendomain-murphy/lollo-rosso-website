@@ -1,0 +1,144 @@
+import { useState } from "react";
+import { DishCard } from "./DishCard";
+import { Button } from "@/components/ui/button";
+
+import sushi1 from "@assets/stock_images/fresh_sushi_platter__5ce826ac.jpg";
+import sushi2 from "@assets/stock_images/fresh_sushi_platter__df06bffe.jpg";
+import sushi3 from "@assets/stock_images/fresh_sushi_platter__ec629e7b.jpg";
+import bowl1 from "@assets/stock_images/asian_rice_bowl_heal_9c81535a.jpg";
+import bowl2 from "@assets/stock_images/asian_rice_bowl_heal_a1294d9c.jpg";
+import bowl3 from "@assets/stock_images/asian_rice_bowl_heal_f146d037.jpg";
+import dimsum1 from "@assets/stock_images/steamed_dumplings_di_89c2ddce.jpg";
+import dimsum2 from "@assets/stock_images/steamed_dumplings_di_6a9e073e.jpg";
+import dimsum3 from "@assets/stock_images/steamed_dumplings_di_5183efc2.jpg";
+
+//todo: remove mock functionality
+const dishes = [
+  {
+    id: 1,
+    name: "Dragon Roll",
+    description: "Premium sushi roll with fresh salmon, avocado, and special sauce",
+    price: "₹899",
+    image: sushi1,
+    category: "sushi" as const,
+    hasVideo: true,
+  },
+  {
+    id: 2,
+    name: "Rainbow Platter",
+    description: "Assorted sushi selection with tuna, salmon, and yellowtail",
+    price: "₹1,299",
+    image: sushi2,
+    category: "sushi" as const,
+  },
+  {
+    id: 3,
+    name: "Signature Roll",
+    description: "Chef's special creation with premium ingredients",
+    price: "₹999",
+    image: sushi3,
+    category: "sushi" as const,
+  },
+  {
+    id: 4,
+    name: "Asian Buddha Bowl",
+    description: "Healthy bowl with quinoa, vegetables, and teriyaki chicken",
+    price: "₹649",
+    image: bowl1,
+    category: "bowls" as const,
+    hasVideo: true,
+  },
+  {
+    id: 5,
+    name: "Poke Bowl",
+    description: "Fresh salmon, edamame, cucumber, and sesame dressing",
+    price: "₹749",
+    image: bowl2,
+    category: "bowls" as const,
+  },
+  {
+    id: 6,
+    name: "Spicy Tuna Bowl",
+    description: "Marinated tuna with vegetables and spicy mayo",
+    price: "₹799",
+    image: bowl3,
+    category: "bowls" as const,
+  },
+  {
+    id: 7,
+    name: "Steamed Dimsums",
+    description: "Traditional handmade dumplings with pork and vegetables",
+    price: "₹499",
+    image: dimsum1,
+    category: "dimsums" as const,
+  },
+  {
+    id: 8,
+    name: "Prawn Har Gow",
+    description: "Delicate crystal skin dumplings filled with fresh prawns",
+    price: "₹599",
+    image: dimsum2,
+    category: "dimsums" as const,
+    hasVideo: true,
+  },
+  {
+    id: 9,
+    name: "Mixed Dimsum Platter",
+    description: "Assortment of steamed and pan-fried dumplings",
+    price: "₹699",
+    image: dimsum3,
+    category: "dimsums" as const,
+  },
+];
+
+type Category = "all" | "bowls" | "sushi" | "dimsums";
+
+export function DishGallery() {
+  const [selectedCategory, setSelectedCategory] = useState<Category>("all");
+
+  const filteredDishes =
+    selectedCategory === "all"
+      ? dishes
+      : dishes.filter((dish) => dish.category === selectedCategory);
+
+  const categories: { value: Category; label: string }[] = [
+    { value: "all", label: "All Dishes" },
+    { value: "bowls", label: "Bowl Meals" },
+    { value: "sushi", label: "Sushi" },
+    { value: "dimsums", label: "Dimsums" },
+  ];
+
+  return (
+    <section id="menu" className="py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" data-testid="text-menu-title">
+            Our Signature Dishes
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-menu-subtitle">
+            Discover our carefully crafted menu featuring the finest ingredients and authentic flavors
+          </p>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
+          {categories.map((category) => (
+            <Button
+              key={category.value}
+              variant={selectedCategory === category.value ? "default" : "outline"}
+              onClick={() => setSelectedCategory(category.value)}
+              data-testid={`button-filter-${category.value}`}
+            >
+              {category.label}
+            </Button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredDishes.map((dish) => (
+            <DishCard key={dish.id} {...dish} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
