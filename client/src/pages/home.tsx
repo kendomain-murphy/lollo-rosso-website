@@ -2,6 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
 import { DishGallery } from "@/components/DishGallery";
+import { ServicesModal } from "@/components/ServicesModal";
 import { LocationsSection } from "@/components/LocationsSection";
 import { AwardsSection } from "@/components/AwardsSection";
 import { Footer } from "@/components/Footer";
@@ -13,6 +14,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <DishGallery />
+      <ServicesModal />
       <LocationsSection />
       <AwardsSection />
       <Footer />
