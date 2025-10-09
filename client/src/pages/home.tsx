@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/HeroSection";
+import { AboutSection } from "@/components/AboutSection";
 import { DishGallery } from "@/components/DishGallery";
 import { LocationsSection } from "@/components/LocationsSection";
 import { AwardsSection } from "@/components/AwardsSection";
@@ -10,6 +11,7 @@ export default function Home() {
     <div className="min-h-screen">
       <Navigation />
       <HeroSection />
+      <AboutSection />
       <DishGallery />
       <LocationsSection />
       <AwardsSection />

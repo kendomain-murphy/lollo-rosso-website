@@ -42,6 +42,13 @@ export function Navigation() {
 
           <div className="hidden md:flex items-center gap-8">
             <button
+              onClick={() => scrollToSection("about")}
+              className="text-sm font-medium hover:text-primary transition-colors"
+              data-testid="link-about"
+            >
+              About
+            </button>
+            <button
               onClick={() => scrollToSection("menu")}
               className="text-sm font-medium hover:text-primary transition-colors"
               data-testid="link-menu"
@@ -96,6 +103,13 @@ export function Navigation() {
       {isMobileMenuOpen && (
         <div className="md:hidden border-t bg-background/95 backdrop-blur-lg">
           <div className="px-6 py-4 space-y-3">
+            <button
+              onClick={() => scrollToSection("about")}
+              className="block w-full text-left py-2 hover:text-primary transition-colors"
+              data-testid="link-about-mobile"
+            >
+              About
+            </button>
             <button
               onClick={() => scrollToSection("menu")}
               className="block w-full text-left py-2 hover:text-primary transition-colors"
