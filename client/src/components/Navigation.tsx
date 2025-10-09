@@ -57,11 +57,11 @@ export function Navigation() {
             </button>
             <button
               onClick={() => scrollToSection("services")}
-              className="flex items-center gap-1.5 text-sm font-medium hover:text-primary transition-colors"
+              className="hover:text-primary transition-colors"
+              title="Services"
               data-testid="link-services"
             >
-              <Sparkles className="w-4 h-4" />
-              Services
+              <Sparkles className="w-5 h-5" />
             </button>
             <button
               onClick={() => scrollToSection("locations")}
@@ -127,11 +127,11 @@ export function Navigation() {
             </button>
             <button
               onClick={() => scrollToSection("services")}
-              className="flex items-center gap-1.5 w-full text-left py-2 hover:text-primary transition-colors"
+              className="flex items-center w-full text-left py-2 hover:text-primary transition-colors"
+              title="Services"
               data-testid="link-services-mobile"
             >
-              <Sparkles className="w-4 h-4" />
-              Services
+              <Sparkles className="w-5 h-5" />
             </button>
             <button
               onClick={() => scrollToSection("locations")}
