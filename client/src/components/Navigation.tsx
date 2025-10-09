@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
 import logo from "@assets/lollo-rosso-logo_1760011336039.jpg";
@@ -54,6 +54,14 @@ export function Navigation() {
               data-testid="link-menu"
             >
               Menu
+            </button>
+            <button
+              onClick={() => scrollToSection("services")}
+              className="flex items-center gap-1.5 text-sm font-medium hover:text-primary transition-colors"
+              data-testid="link-services"
+            >
+              <Sparkles className="w-4 h-4" />
+              Services
             </button>
             <button
               onClick={() => scrollToSection("locations")}
@@ -116,6 +124,14 @@ export function Navigation() {
               data-testid="link-menu-mobile"
             >
               Menu
+            </button>
+            <button
+              onClick={() => scrollToSection("services")}
+              className="flex items-center gap-1.5 w-full text-left py-2 hover:text-primary transition-colors"
+              data-testid="link-services-mobile"
+            >
+              <Sparkles className="w-4 h-4" />
+              Services
             </button>
             <button
               onClick={() => scrollToSection("locations")}
