@@ -54,12 +54,14 @@ export function HeroSection() {
       <div 
         className="absolute inset-0" 
         style={{
-          background: `linear-gradient(135deg, 
-            rgba(220, 120, 80, 0.65) 0%, 
-            rgba(180, 80, 60, 0.70) 25%,
-            rgba(100, 140, 100, 0.60) 50%,
-            rgba(70, 120, 120, 0.65) 75%,
-            rgba(30, 50, 80, 0.75) 100%)`
+          background: `linear-gradient(to right, 
+            rgba(255, 255, 255, 0.95) 0%, 
+            rgba(255, 255, 255, 0.85) 20%,
+            rgba(220, 120, 80, 0.50) 40%, 
+            rgba(180, 80, 60, 0.55) 55%,
+            rgba(100, 140, 100, 0.50) 70%,
+            rgba(70, 120, 120, 0.55) 85%,
+            rgba(30, 50, 80, 0.60) 100%)`
         }}
       />
       
@@ -95,10 +97,10 @@ export function HeroSection() {
       </div>
       
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <h1 className="font-serif text-6xl md:text-8xl font-bold mb-6 text-white" data-testid="text-hero-title">
+        <h1 className="font-serif text-6xl md:text-8xl font-bold mb-6" data-testid="text-hero-title">
           Lollo Rosso
         </h1>
-        <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto" data-testid="text-hero-subtitle">
+        <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-2xl mx-auto" data-testid="text-hero-subtitle">
           Experience the finest Asian fusion cuisine with artisanal bowl meals, premium sushi, and authentic dimsums
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
