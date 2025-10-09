@@ -95,10 +95,10 @@ export function HeroSection() {
       </div>
       
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <div className="flex justify-center mb-8">
-          <img src={logo} alt="Lollo Rosso" className="h-32 md:h-48 w-auto" data-testid="img-hero-logo" />
-        </div>
-        <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto" data-testid="text-hero-subtitle">
+        <h1 className="font-serif text-6xl md:text-8xl font-bold mb-6 text-white" data-testid="text-hero-title">
+          Lollo Rosso
+        </h1>
+        <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto" data-testid="text-hero-subtitle">
           Experience the finest Asian fusion cuisine with artisanal bowl meals, premium sushi, and authentic dimsums
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
