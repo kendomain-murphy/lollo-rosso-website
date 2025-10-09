@@ -51,7 +51,17 @@ export function HeroSection() {
           style={{ backgroundImage: `url(${image})` }}
         />
       ))}
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/30" />
+      <div 
+        className="absolute inset-0" 
+        style={{
+          background: `linear-gradient(135deg, 
+            rgba(220, 120, 80, 0.65) 0%, 
+            rgba(180, 80, 60, 0.70) 25%,
+            rgba(100, 140, 100, 0.60) 50%,
+            rgba(70, 120, 120, 0.65) 75%,
+            rgba(30, 50, 80, 0.75) 100%)`
+        }}
+      />
       
       <button
         onClick={prevSlide}
