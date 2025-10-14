@@ -1,5 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 import logo from "@assets/lollo-rosso-logo_1760011336039.jpg";
 
@@ -104,13 +110,40 @@ export function HeroSection() {
           Experience the finest Asian fusion cuisine with artisanal bowl meals, premium sushi, and authentic dimsums
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
-            size="lg"
-            onClick={() => scrollToSection("menu")}
-            data-testid="button-view-menu"
-          >
-            View Menu
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button size="lg" data-testid="button-view-menu">
+                View Menu
+                <ChevronDown className="ml-2 h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="center" className="w-48" data-testid="dropdown-menu-locations">
+              <DropdownMenuItem
+                onClick={() => scrollToSection("menu")}
+                data-testid="menu-location-ahmedabad"
+              >
+                Ahmedabad
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() => scrollToSection("menu")}
+                data-testid="menu-location-baroda"
+              >
+                Baroda
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() => scrollToSection("menu")}
+                data-testid="menu-location-svp-airport"
+              >
+                SVP Airport
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={() => scrollToSection("menu")}
+                data-testid="menu-location-goa"
+              >
+                Goa
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
           <Button
             size="lg"
             variant="outline"
