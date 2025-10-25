@@ -26,7 +26,7 @@ export function Footer() {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
-            <img src={logo} alt="Lollo Rosso" className="h-24 w-auto mb-4" data-testid="img-footer-logo" />
+            <img src={logo} alt="Lollo Rosso" className="h-16 w-auto mb-4" data-testid="img-footer-logo" />
             <p className="text-sm text-muted-foreground mb-4">
               Experience the finest Asian fusion cuisine with bowl meals, sushi, and dimsums.
             </p>

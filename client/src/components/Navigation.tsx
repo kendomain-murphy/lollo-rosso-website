@@ -37,7 +37,7 @@ export function Navigation() {
             className="hover-elevate active-elevate-2 px-2 py-1 rounded-md"
             data-testid="button-logo"
           >
-            <img src={logo} alt="Lollo Rosso" className="h-14 w-auto" />
+            <img src={logo} alt="Lollo Rosso" className="h-10 w-auto" />
           </button>
 
           <div className="hidden md:flex items-center gap-8">
