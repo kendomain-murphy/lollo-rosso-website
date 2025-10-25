@@ -8,10 +8,10 @@ import {
 import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
 
-import heroImage1 from "@assets/stock_images/elegant_dining_table_d6319dd3.jpg";
-import heroImage2 from "@assets/stock_images/fresh_sushi_platter__5ce826ac.jpg";
-import heroImage3 from "@assets/stock_images/asian_rice_bowl_heal_9c81535a.jpg";
-import heroImage4 from "@assets/stock_images/steamed_dumplings_di_89c2ddce.jpg";
+import heroImage1 from "@assets/8-4064_1761394200452.jpg";
+import heroImage2 from "@assets/16-3437_1761394200454.jpg";
+import heroImage3 from "@assets/31-4227_1761394200456.jpg";
+import heroImage4 from "@assets/5_1-3613_1761394200458.jpg";
 
 const carouselImages = [heroImage1, heroImage2, heroImage3, heroImage4];
 
@@ -50,29 +50,21 @@ export function HeroSection() {
       {carouselImages.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+          className={`absolute inset-0 transition-opacity duration-1000 ${
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
-          style={{ backgroundImage: `url(${image})` }}
-        />
+        >
+          <img 
+            src={image} 
+            alt={`Slide ${index + 1}`}
+            className="w-full h-full object-cover"
+          />
+        </div>
       ))}
-      <div 
-        className="absolute inset-0" 
-        style={{
-          background: `linear-gradient(to right, 
-            rgba(255, 255, 255, 0.95) 0%, 
-            rgba(255, 255, 255, 0.85) 20%,
-            rgba(220, 120, 80, 0.50) 40%, 
-            rgba(180, 80, 60, 0.55) 55%,
-            rgba(100, 140, 100, 0.50) 70%,
-            rgba(70, 120, 120, 0.55) 85%,
-            rgba(30, 50, 80, 0.60) 100%)`
-        }}
-      />
       
       <button
         onClick={prevSlide}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-background/20 backdrop-blur-sm flex items-center justify-center hover-elevate active-elevate-2 border border-white/20"
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center hover-elevate active-elevate-2 border"
         data-testid="button-carousel-prev"
       >
         <ChevronLeft className="h-6 w-6" />
@@ -80,7 +72,7 @@ export function HeroSection() {
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-background/20 backdrop-blur-sm flex items-center justify-center hover-elevate active-elevate-2 border border-white/20"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-background/80 backdrop-blur-sm flex items-center justify-center hover-elevate active-elevate-2 border"
         data-testid="button-carousel-next"
       >
         <ChevronRight className="h-6 w-6" />
@@ -93,19 +85,21 @@ export function HeroSection() {
             onClick={() => goToSlide(index)}
             className={`w-2 h-2 rounded-full transition-all ${
               index === currentSlide
-                ? "bg-primary w-8"
-                : "bg-white/50 hover:bg-white/80"
+                ? "bg-foreground w-8"
+                : "bg-foreground/50 hover:bg-foreground/80"
             }`}
             data-testid={`button-carousel-dot-${index}`}
           />
         ))}
       </div>
       
+      <div className="absolute inset-0 bg-black/40 z-5"></div>
+      
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <h1 className="font-mono text-5xl md:text-7xl font-bold mb-6 tracking-wider" data-testid="text-hero-title">
+        <h1 className="font-mono text-5xl md:text-7xl font-bold mb-6 tracking-wider text-white" data-testid="text-hero-title">
           lollo rosso
         </h1>
-        <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-2xl mx-auto" data-testid="text-hero-subtitle">
+        <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto" data-testid="text-hero-subtitle">
           Experience the finest Asian fusion cuisine with artisanal bowl meals, premium sushi, and authentic dimsums
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -146,7 +140,7 @@ export function HeroSection() {
           <Button
             size="lg"
             variant="outline"
-            className="bg-background/20 backdrop-blur-sm"
+            className="bg-background/80 backdrop-blur-sm border-white/40 text-foreground hover:bg-background"
             onClick={() => scrollToSection("locations")}
             data-testid="button-find-location"
           >
