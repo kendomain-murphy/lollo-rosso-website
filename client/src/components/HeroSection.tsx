@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ChevronLeft, ChevronRight, ChevronDown } from "lucide-react";
 import { useState, useEffect } from "react";
-import logo from "@assets/lollo-rosso-logo_1760011336039.jpg";
 
 import heroImage1 from "@assets/stock_images/elegant_dining_table_d6319dd3.jpg";
 import heroImage2 from "@assets/stock_images/fresh_sushi_platter__5ce826ac.jpg";

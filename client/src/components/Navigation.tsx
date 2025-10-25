@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "./ThemeToggle";
-import logo from "@assets/lollo-rosso-logo_1760011336039.jpg";
+import logo from "@assets/LR_NewLogo_TP_1761393694305.png";
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,7 +37,7 @@ export function Navigation() {
             className="hover-elevate active-elevate-2 px-2 py-1 rounded-md"
             data-testid="button-logo"
           >
-            <img src={logo} alt="Lollo Rosso" className="h-10 w-auto" />
+            <img src={logo} alt="Lollo Rosso" className="h-12 w-auto" />
           </button>
 
           <div className="hidden md:flex items-center gap-8">
