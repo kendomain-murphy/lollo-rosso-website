@@ -102,7 +102,7 @@ export function HeroSection() {
       </div>
       
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-        <h1 className="font-mono text-6xl md:text-8xl font-bold mb-6 tracking-wider" data-testid="text-hero-title">
+        <h1 className="font-mono text-5xl md:text-7xl font-bold mb-6 tracking-wider" data-testid="text-hero-title">
           lollo rosso
         </h1>
         <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-2xl mx-auto" data-testid="text-hero-subtitle">
