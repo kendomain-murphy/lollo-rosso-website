@@ -1,0 +1,139 @@
+import { useState, useEffect } from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+
+import menuPage1 from "@assets/LR_Navrangpura_Menu_Pg1_1761483365586.avif";
+import menuPage2 from "@assets/LR_Navrangpura_Menu_Pg2_1761483365588.avif";
+
+export function MenuSection() {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [activeTab, setActiveTab] = useState("navrangpura");
+  const menuPages = [menuPage1, menuPage2];
+
+  const nextPage = () => {
+    setCurrentPage((prev) => (prev + 1) % menuPages.length);
+  };
+
+  const prevPage = () => {
+    setCurrentPage((prev) => (prev - 1 + menuPages.length) % menuPages.length);
+  };
+
+  const goToPage = (index: number) => {
+    setCurrentPage(index);
+  };
+
+  return (
+    <section id="menu" className="py-20 px-6 bg-background">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" data-testid="text-menu-title">
+            Our Menu
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-menu-subtitle">
+            Explore our delicious selection at your nearest Ahmedabad location
+          </p>
+        </div>
+
+        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full" data-testid="tabs-menu-locations">
+          <TabsList className="grid w-full grid-cols-3 mb-8" data-testid="tabs-list-menu">
+            <TabsTrigger value="bodakdev" data-testid="tab-bodakdev">
+              Bodakdev
+            </TabsTrigger>
+            <TabsTrigger value="navrangpura" data-testid="tab-navrangpura">
+              Navrangpura
+            </TabsTrigger>
+            <TabsTrigger value="adani-shantigram" data-testid="tab-adani-shantigram">
+              Adani Shantigram
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="bodakdev" data-testid="content-bodakdev">
+            <Card className="p-8 text-center">
+              <h3 className="font-serif text-2xl font-bold mb-4" data-testid="text-bodakdev-title">
+                Bodakdev Menu
+              </h3>
+              <p className="text-muted-foreground" data-testid="text-bodakdev-description">
+                Coming soon - Full menu will be available shortly
+              </p>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="navrangpura" data-testid="content-navrangpura">
+            <div className="relative">
+              <div className="relative overflow-hidden rounded-lg bg-muted/30">
+                <div 
+                  className="flex transition-transform duration-500 ease-in-out"
+                  style={{ transform: `translateX(-${currentPage * 100}%)` }}
+                >
+                  {menuPages.map((page, index) => (
+                    <div
+                      key={index}
+                      className="w-full flex-shrink-0"
+                    >
+                      <img
+                        src={page}
+                        alt={`Menu Page ${index + 1}`}
+                        className="w-full h-auto object-contain max-h-[800px]"
+                        data-testid={`img-menu-page-${index + 1}`}
+                      />
+                    </div>
+                  ))}
+                </div>
+
+                <button
+                  onClick={prevPage}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center border shadow-lg hover:bg-white transition-colors"
+                  data-testid="button-menu-prev"
+                >
+                  <ChevronLeft className="h-6 w-6 text-foreground" />
+                </button>
+
+                <button
+                  onClick={nextPage}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center border shadow-lg hover:bg-white transition-colors"
+                  data-testid="button-menu-next"
+                >
+                  <ChevronRight className="h-6 w-6 text-foreground" />
+                </button>
+              </div>
+
+              <div className="flex justify-center gap-2 mt-6">
+                {menuPages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => goToPage(index)}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      index === currentPage
+                        ? "bg-foreground w-8"
+                        : "bg-foreground/50 hover:bg-foreground/80"
+                    }`}
+                    data-testid={`button-menu-dot-${index}`}
+                  />
+                ))}
+              </div>
+
+              <div className="text-center mt-4 text-sm text-muted-foreground">
+                <p data-testid="text-page-indicator">
+                  Page {currentPage + 1} of {menuPages.length}
+                </p>
+              </div>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="adani-shantigram" data-testid="content-adani-shantigram">
+            <Card className="p-8 text-center">
+              <h3 className="font-serif text-2xl font-bold mb-4" data-testid="text-adani-shantigram-title">
+                Adani Shantigram Menu
+              </h3>
+              <p className="text-muted-foreground" data-testid="text-adani-shantigram-description">
+                Coming soon - Full menu will be available shortly
+              </p>
+            </Card>
+          </TabsContent>
+        </Tabs>
+      </div>
+    </section>
+  );
+}
