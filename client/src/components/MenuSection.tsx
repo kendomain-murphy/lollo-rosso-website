@@ -2,15 +2,17 @@ import { useState, useEffect, useRef } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectFlip, Navigation, Pagination } from 'swiper/modules';
+import { EffectFlip, Navigation, Pagination, Zoom } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 
 import 'swiper/css';
 import 'swiper/css/effect-flip';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import 'swiper/css/zoom';
 
 import menuPage1 from "@assets/LR_Navrangpura_Menu_Pg1_1761485687851.jpg";
 import menuPage2 from "@assets/LR_Navrangpura_Menu_Pg2_1761485687853.jpg";
@@ -18,8 +20,16 @@ import menuPage2 from "@assets/LR_Navrangpura_Menu_Pg2_1761485687853.jpg";
 export function MenuSection() {
   const [activeTab, setActiveTab] = useState("navrangpura");
   const swiperRef = useRef<SwiperType | null>(null);
+  const modalSwiperRef = useRef<SwiperType | null>(null);
   const [currentPage, setCurrentPage] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalPage, setModalPage] = useState(0);
   const menuPages = [menuPage1, menuPage2];
+
+  const openModal = () => {
+    setModalPage(currentPage);
+    setIsModalOpen(true);
+  };
 
   return (
     <section id="menu" className="py-20 px-6 bg-background">
@@ -118,6 +128,15 @@ export function MenuSection() {
                 >
                   <ChevronRight className="h-5 w-5 md:h-7 md:w-7 text-foreground" />
                 </button>
+
+                <button
+                  onClick={openModal}
+                  className="absolute top-2 right-2 md:top-4 md:right-4 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all"
+                  data-testid="button-menu-maximize"
+                  title="View full screen"
+                >
+                  <Maximize2 className="h-5 w-5 md:h-6 md:w-6 text-foreground" />
+                </button>
               </div>
 
               <div className="flex justify-center gap-2 md:gap-3 mt-6 md:mt-8">
@@ -155,6 +174,97 @@ export function MenuSection() {
           </TabsContent>
         </Tabs>
       </div>
+
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] h-[95vh] p-0 overflow-hidden" data-testid="dialog-menu-viewer">
+          <div className="relative w-full h-full bg-background">
+            <div className="absolute top-2 right-2 z-50 flex items-center gap-2">
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-xl hover:bg-white hover:scale-110 transition-all"
+                data-testid="button-modal-close"
+              >
+                <X className="h-5 w-5 text-foreground" />
+              </button>
+            </div>
+
+            <div className="w-full h-full flex flex-col">
+              <div className="flex-1 relative">
+                <Swiper
+                  effect={'flip'}
+                  grabCursor={true}
+                  zoom={true}
+                  modules={[EffectFlip, Navigation, Pagination, Zoom]}
+                  className="h-full w-full"
+                  initialSlide={modalPage}
+                  onSwiper={(swiper) => {
+                    modalSwiperRef.current = swiper;
+                  }}
+                  onSlideChange={(swiper) => {
+                    setModalPage(swiper.activeIndex);
+                  }}
+                  flipEffect={{
+                    slideShadows: true,
+                    limitRotation: true,
+                  }}
+                >
+                  {menuPages.map((page, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="swiper-zoom-container w-full h-full flex items-center justify-center bg-muted/20">
+                        <img
+                          src={page}
+                          alt={`Menu Page ${index + 1}`}
+                          className="max-w-full max-h-full object-contain"
+                          data-testid={`img-modal-menu-page-${index + 1}`}
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+
+                <button
+                  onClick={() => modalSwiperRef.current?.slidePrev()}
+                  className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-40 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all"
+                  data-testid="button-modal-prev"
+                >
+                  <ChevronLeft className="h-6 w-6 md:h-7 md:w-7 text-foreground" />
+                </button>
+
+                <button
+                  onClick={() => modalSwiperRef.current?.slideNext()}
+                  className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-40 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all"
+                  data-testid="button-modal-next"
+                >
+                  <ChevronRight className="h-6 w-6 md:h-7 md:w-7 text-foreground" />
+                </button>
+              </div>
+
+              <div className="py-4 bg-background/95 backdrop-blur-sm border-t">
+                <div className="flex justify-center gap-3">
+                  {menuPages.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => modalSwiperRef.current?.slideTo(index)}
+                      className={`transition-all ${
+                        index === modalPage
+                          ? "w-10 h-3 bg-foreground rounded-full"
+                          : "w-3 h-3 bg-foreground/40 rounded-full hover:bg-foreground/70"
+                      }`}
+                      data-testid={`button-modal-dot-${index}`}
+                    />
+                  ))}
+                </div>
+                <p className="text-center mt-2 text-sm font-medium text-foreground" data-testid="text-modal-page-indicator">
+                  Page {modalPage + 1} of {menuPages.length}
+                </p>
+                <p className="text-center mt-1 text-xs text-muted-foreground">
+                  Pinch to zoom • Swipe to navigate
+                </p>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 }
