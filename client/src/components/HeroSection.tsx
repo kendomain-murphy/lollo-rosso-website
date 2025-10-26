@@ -64,18 +64,18 @@ export function HeroSection() {
       
       <button
         onClick={prevSlide}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center border shadow-lg hover:bg-white transition-colors"
+        className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-12 md:h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center border shadow-lg hover:bg-white transition-colors"
         data-testid="button-carousel-prev"
       >
-        <ChevronLeft className="h-6 w-6 text-foreground" />
+        <ChevronLeft className="h-4 w-4 md:h-6 md:w-6 text-foreground" />
       </button>
 
       <button
         onClick={nextSlide}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center border shadow-lg hover:bg-white transition-colors"
+        className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-12 md:h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center border shadow-lg hover:bg-white transition-colors"
         data-testid="button-carousel-next"
       >
-        <ChevronRight className="h-6 w-6 text-foreground" />
+        <ChevronRight className="h-4 w-4 md:h-6 md:w-6 text-foreground" />
       </button>
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
