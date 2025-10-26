@@ -62,60 +62,92 @@ export function MenuSection() {
 
           <TabsContent value="navrangpura" data-testid="content-navrangpura">
             <div className="relative">
-              <div className="relative overflow-hidden rounded-lg bg-muted/30">
-                <div 
-                  className="flex transition-transform duration-500 ease-in-out"
-                  style={{ transform: `translateX(-${currentPage * 100}%)` }}
-                >
+              <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-muted/20 to-muted/40 shadow-2xl" style={{ perspective: "2000px" }}>
+                <div className="relative w-full" style={{ minHeight: "600px" }}>
                   {menuPages.map((page, index) => (
                     <div
                       key={index}
-                      className="w-full flex-shrink-0"
+                      className={`absolute inset-0 w-full transition-all duration-700 ease-in-out ${
+                        index === currentPage 
+                          ? "opacity-100 z-10" 
+                          : index < currentPage 
+                            ? "opacity-0 z-0" 
+                            : "opacity-0 z-5"
+                      }`}
+                      style={{
+                        transform: index === currentPage 
+                          ? "translateX(0) rotateY(0deg)" 
+                          : index < currentPage 
+                            ? "translateX(-100%) rotateY(-15deg)" 
+                            : "translateX(100%) rotateY(15deg)",
+                        transformOrigin: index < currentPage ? "right center" : "left center",
+                        transformStyle: "preserve-3d",
+                      }}
                     >
-                      <img
-                        src={page}
-                        alt={`Menu Page ${index + 1}`}
-                        className="w-full h-auto object-contain max-h-[800px]"
-                        data-testid={`img-menu-page-${index + 1}`}
-                      />
+                      <div className="relative w-full h-full bg-white rounded-lg shadow-xl overflow-hidden">
+                        <div 
+                          className={`absolute inset-y-0 w-8 z-20 pointer-events-none transition-opacity duration-300 ${
+                            index === currentPage ? "opacity-100" : "opacity-0"
+                          }`}
+                          style={{
+                            right: index === 0 ? "0" : "auto",
+                            left: index === 1 ? "0" : "auto",
+                            background: index === 0 
+                              ? "linear-gradient(to left, rgba(0,0,0,0.15), transparent)"
+                              : "linear-gradient(to right, rgba(0,0,0,0.15), transparent)"
+                          }}
+                        />
+                        <img
+                          src={page}
+                          alt={`Menu Page ${index + 1}`}
+                          className="w-full h-auto object-contain"
+                          style={{ 
+                            maxHeight: "none",
+                            minHeight: "600px",
+                          }}
+                          data-testid={`img-menu-page-${index + 1}`}
+                        />
+                      </div>
                     </div>
                   ))}
                 </div>
 
                 <button
                   onClick={prevPage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center border shadow-lg hover:bg-white transition-colors"
+                  disabled={currentPage === 0}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
                   data-testid="button-menu-prev"
                 >
-                  <ChevronLeft className="h-6 w-6 text-foreground" />
+                  <ChevronLeft className="h-7 w-7 text-foreground" />
                 </button>
 
                 <button
                   onClick={nextPage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center border shadow-lg hover:bg-white transition-colors"
+                  disabled={currentPage === menuPages.length - 1}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
                   data-testid="button-menu-next"
                 >
-                  <ChevronRight className="h-6 w-6 text-foreground" />
+                  <ChevronRight className="h-7 w-7 text-foreground" />
                 </button>
               </div>
 
-              <div className="flex justify-center gap-2 mt-6">
+              <div className="flex justify-center gap-3 mt-8">
                 {menuPages.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToPage(index)}
-                    className={`w-2 h-2 rounded-full transition-all ${
+                    className={`transition-all ${
                       index === currentPage
-                        ? "bg-foreground w-8"
-                        : "bg-foreground/50 hover:bg-foreground/80"
+                        ? "w-12 h-3 bg-foreground rounded-full"
+                        : "w-3 h-3 bg-foreground/40 rounded-full hover:bg-foreground/70"
                     }`}
                     data-testid={`button-menu-dot-${index}`}
                   />
                 ))}
               </div>
 
-              <div className="text-center mt-4 text-sm text-muted-foreground">
-                <p data-testid="text-page-indicator">
+              <div className="text-center mt-6">
+                <p className="text-base font-medium text-foreground" data-testid="text-page-indicator">
                   Page {currentPage + 1} of {menuPages.length}
                 </p>
               </div>
