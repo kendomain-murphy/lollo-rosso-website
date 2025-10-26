@@ -25,6 +25,14 @@ export function HeroSection() {
     }
   };
 
+  const scrollToMenuWithTab = (tab: string) => {
+    window.location.hash = `menu-${tab}`;
+    const element = document.getElementById("menu");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % carouselImages.length);
   };
@@ -112,7 +120,7 @@ export function HeroSection() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="center" className="w-48" data-testid="dropdown-menu-locations">
               <DropdownMenuItem
-                onClick={() => scrollToSection("menu")}
+                onClick={() => scrollToMenuWithTab("navrangpura")}
                 data-testid="menu-location-ahmedabad"
               >
                 Ahmedabad

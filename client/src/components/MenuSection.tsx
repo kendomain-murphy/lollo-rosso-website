@@ -31,6 +31,23 @@ export function MenuSection() {
     setIsModalOpen(true);
   };
 
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash === '#menu-navrangpura') {
+        setActiveTab('navrangpura');
+      } else if (hash === '#menu-bodakdev') {
+        setActiveTab('bodakdev');
+      } else if (hash === '#menu-adani-shantigram') {
+        setActiveTab('adani-shantigram');
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   return (
     <section id="menu" className="py-20 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
