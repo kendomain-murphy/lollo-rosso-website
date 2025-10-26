@@ -1,28 +1,25 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectFlip, Navigation, Pagination } from 'swiper/modules';
+import type { Swiper as SwiperType } from 'swiper';
+
+import 'swiper/css';
+import 'swiper/css/effect-flip';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 import menuPage1 from "@assets/LR_Navrangpura_Menu_Pg1_1761485687851.jpg";
 import menuPage2 from "@assets/LR_Navrangpura_Menu_Pg2_1761485687853.jpg";
 
 export function MenuSection() {
-  const [currentPage, setCurrentPage] = useState(0);
   const [activeTab, setActiveTab] = useState("navrangpura");
+  const swiperRef = useRef<SwiperType | null>(null);
+  const [currentPage, setCurrentPage] = useState(0);
   const menuPages = [menuPage1, menuPage2];
-
-  const nextPage = () => {
-    setCurrentPage((prev) => (prev + 1) % menuPages.length);
-  };
-
-  const prevPage = () => {
-    setCurrentPage((prev) => (prev - 1 + menuPages.length) % menuPages.length);
-  };
-
-  const goToPage = (index: number) => {
-    setCurrentPage(index);
-  };
 
   return (
     <section id="menu" className="py-20 px-6 bg-background">
@@ -62,39 +59,37 @@ export function MenuSection() {
 
           <TabsContent value="navrangpura" data-testid="content-navrangpura">
             <div className="relative">
-              <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-muted/20 to-muted/40 shadow-2xl" style={{ perspective: "2000px" }}>
-                <div className="relative w-full min-h-[400px] md:min-h-[600px] lg:min-h-[700px]">
+              <div className="relative rounded-lg overflow-visible shadow-2xl menu-swiper-container">
+                <Swiper
+                  effect={'flip'}
+                  grabCursor={true}
+                  modules={[EffectFlip, Navigation, Pagination]}
+                  className="menu-swiper"
+                  onSwiper={(swiper) => {
+                    swiperRef.current = swiper;
+                  }}
+                  onSlideChange={(swiper) => {
+                    setCurrentPage(swiper.activeIndex);
+                  }}
+                  flipEffect={{
+                    slideShadows: true,
+                    limitRotation: true,
+                  }}
+                  style={{
+                    minHeight: '400px',
+                  }}
+                >
                   {menuPages.map((page, index) => (
-                    <div
-                      key={index}
-                      className={`absolute inset-0 w-full transition-all duration-700 ease-in-out ${
-                        index === currentPage 
-                          ? "opacity-100 z-10" 
-                          : index < currentPage 
-                            ? "opacity-0 z-0" 
-                            : "opacity-0 z-5"
-                      }`}
-                      style={{
-                        transform: index === currentPage 
-                          ? "translateX(0) rotateY(0deg)" 
-                          : index < currentPage 
-                            ? "translateX(-100%) rotateY(-15deg)" 
-                            : "translateX(100%) rotateY(15deg)",
-                        transformOrigin: index < currentPage ? "right center" : "left center",
-                        transformStyle: "preserve-3d",
-                      }}
-                    >
-                      <div className="relative w-full h-full bg-white rounded-lg shadow-xl overflow-y-auto">
+                    <SwiperSlide key={index}>
+                      <div className="relative w-full h-full bg-white rounded-lg shadow-xl overflow-y-auto min-h-[400px] md:min-h-[600px] lg:min-h-[700px]">
                         <div 
-                          className={`absolute inset-y-0 w-4 md:w-8 z-20 pointer-events-none transition-opacity duration-300 ${
-                            index === currentPage ? "opacity-100" : "opacity-0"
-                          }`}
+                          className="absolute inset-y-0 w-4 md:w-8 z-20 pointer-events-none"
                           style={{
                             right: index === 0 ? "0" : "auto",
                             left: index === 1 ? "0" : "auto",
                             background: index === 0 
-                              ? "linear-gradient(to left, rgba(0,0,0,0.15), transparent)"
-                              : "linear-gradient(to right, rgba(0,0,0,0.15), transparent)"
+                              ? "linear-gradient(to left, rgba(0,0,0,0.2), transparent)"
+                              : "linear-gradient(to right, rgba(0,0,0,0.2), transparent)"
                           }}
                         />
                         <img
@@ -104,23 +99,21 @@ export function MenuSection() {
                           data-testid={`img-menu-page-${index + 1}`}
                         />
                       </div>
-                    </div>
+                    </SwiperSlide>
                   ))}
-                </div>
+                </Swiper>
 
                 <button
-                  onClick={prevPage}
-                  disabled={currentPage === 0}
-                  className="absolute left-1 md:left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  onClick={() => swiperRef.current?.slidePrev()}
+                  className="absolute left-1 md:left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all"
                   data-testid="button-menu-prev"
                 >
                   <ChevronLeft className="h-5 w-5 md:h-7 md:w-7 text-foreground" />
                 </button>
 
                 <button
-                  onClick={nextPage}
-                  disabled={currentPage === menuPages.length - 1}
-                  className="absolute right-1 md:right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  onClick={() => swiperRef.current?.slideNext()}
+                  className="absolute right-1 md:right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all"
                   data-testid="button-menu-next"
                 >
                   <ChevronRight className="h-5 w-5 md:h-7 md:w-7 text-foreground" />
@@ -131,7 +124,7 @@ export function MenuSection() {
                 {menuPages.map((_, index) => (
                   <button
                     key={index}
-                    onClick={() => goToPage(index)}
+                    onClick={() => swiperRef.current?.slideTo(index)}
                     className={`transition-all ${
                       index === currentPage
                         ? "w-8 md:w-12 h-2 md:h-3 bg-foreground rounded-full"
