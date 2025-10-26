@@ -63,7 +63,7 @@ export function MenuSection() {
           <TabsContent value="navrangpura" data-testid="content-navrangpura">
             <div className="relative">
               <div className="relative overflow-hidden rounded-lg bg-gradient-to-br from-muted/20 to-muted/40 shadow-2xl" style={{ perspective: "2000px" }}>
-                <div className="relative w-full" style={{ minHeight: "600px" }}>
+                <div className="relative w-full min-h-[400px] md:min-h-[600px] lg:min-h-[700px]">
                   {menuPages.map((page, index) => (
                     <div
                       key={index}
@@ -84,9 +84,9 @@ export function MenuSection() {
                         transformStyle: "preserve-3d",
                       }}
                     >
-                      <div className="relative w-full h-full bg-white rounded-lg shadow-xl overflow-hidden">
+                      <div className="relative w-full h-full bg-white rounded-lg shadow-xl overflow-y-auto">
                         <div 
-                          className={`absolute inset-y-0 w-8 z-20 pointer-events-none transition-opacity duration-300 ${
+                          className={`absolute inset-y-0 w-4 md:w-8 z-20 pointer-events-none transition-opacity duration-300 ${
                             index === currentPage ? "opacity-100" : "opacity-0"
                           }`}
                           style={{
@@ -101,10 +101,6 @@ export function MenuSection() {
                           src={page}
                           alt={`Menu Page ${index + 1}`}
                           className="w-full h-auto object-contain"
-                          style={{ 
-                            maxHeight: "none",
-                            minHeight: "600px",
-                          }}
                           data-testid={`img-menu-page-${index + 1}`}
                         />
                       </div>
@@ -115,39 +111,39 @@ export function MenuSection() {
                 <button
                   onClick={prevPage}
                   disabled={currentPage === 0}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="absolute left-1 md:left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
                   data-testid="button-menu-prev"
                 >
-                  <ChevronLeft className="h-7 w-7 text-foreground" />
+                  <ChevronLeft className="h-5 w-5 md:h-7 md:w-7 text-foreground" />
                 </button>
 
                 <button
                   onClick={nextPage}
                   disabled={currentPage === menuPages.length - 1}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  className="absolute right-1 md:right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100"
                   data-testid="button-menu-next"
                 >
-                  <ChevronRight className="h-7 w-7 text-foreground" />
+                  <ChevronRight className="h-5 w-5 md:h-7 md:w-7 text-foreground" />
                 </button>
               </div>
 
-              <div className="flex justify-center gap-3 mt-8">
+              <div className="flex justify-center gap-2 md:gap-3 mt-6 md:mt-8">
                 {menuPages.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => goToPage(index)}
                     className={`transition-all ${
                       index === currentPage
-                        ? "w-12 h-3 bg-foreground rounded-full"
-                        : "w-3 h-3 bg-foreground/40 rounded-full hover:bg-foreground/70"
+                        ? "w-8 md:w-12 h-2 md:h-3 bg-foreground rounded-full"
+                        : "w-2 md:w-3 h-2 md:h-3 bg-foreground/40 rounded-full hover:bg-foreground/70"
                     }`}
                     data-testid={`button-menu-dot-${index}`}
                   />
                 ))}
               </div>
 
-              <div className="text-center mt-6">
-                <p className="text-base font-medium text-foreground" data-testid="text-page-indicator">
+              <div className="text-center mt-4 md:mt-6">
+                <p className="text-sm md:text-base font-medium text-foreground" data-testid="text-page-indicator">
                   Page {currentPage + 1} of {menuPages.length}
                 </p>
               </div>
