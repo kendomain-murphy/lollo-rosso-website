@@ -4,8 +4,8 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-import menuPage1 from "@assets/LR_Navrangpura_Menu_Pg1_1761483365586.avif";
-import menuPage2 from "@assets/LR_Navrangpura_Menu_Pg2_1761483365588.avif";
+import menuPage1 from "@assets/LR_Navrangpura_Menu_Pg1_1761485687851.jpg";
+import menuPage2 from "@assets/LR_Navrangpura_Menu_Pg2_1761485687853.jpg";
 
 export function MenuSection() {
   const [currentPage, setCurrentPage] = useState(0);
