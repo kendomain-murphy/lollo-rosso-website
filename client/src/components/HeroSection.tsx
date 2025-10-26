@@ -124,7 +124,7 @@ export function HeroSection() {
                 Baroda
               </DropdownMenuItem>
               <DropdownMenuItem
-                onClick={() => scrollToSection("menu")}
+                onClick={() => window.open("https://www.adanione.com/svpia-ahmedabad-airport/food-beverages/lollo-rosso-terminal-1-level-0-2153?serviceMode=pickup-at-store", "_blank")}
                 data-testid="menu-location-svp-airport"
               >
                 SVP Airport
