@@ -42,31 +42,6 @@ const dishes = [
   },
   {
     id: 4,
-    name: "Asian Buddha Bowl",
-    description: "Healthy bowl with quinoa, vegetables, and teriyaki chicken",
-    price: "₹649",
-    image: bowl1,
-    category: "bowls" as const,
-    hasVideo: true,
-  },
-  {
-    id: 5,
-    name: "Poke Bowl",
-    description: "Fresh salmon, edamame, cucumber, and sesame dressing",
-    price: "₹749",
-    image: bowl2,
-    category: "bowls" as const,
-  },
-  {
-    id: 6,
-    name: "Spicy Tuna Bowl",
-    description: "Marinated tuna with vegetables and spicy mayo",
-    price: "₹799",
-    image: bowl3,
-    category: "bowls" as const,
-  },
-  {
-    id: 7,
     name: "Steamed Dimsums",
     description: "Traditional handmade dumplings with pork and vegetables",
     price: "₹499",
@@ -74,7 +49,7 @@ const dishes = [
     category: "dimsums" as const,
   },
   {
-    id: 8,
+    id: 5,
     name: "Prawn Har Gow",
     description: "Delicate crystal skin dumplings filled with fresh prawns",
     price: "₹599",
@@ -83,16 +58,49 @@ const dishes = [
     hasVideo: true,
   },
   {
-    id: 9,
+    id: 6,
     name: "Mixed Dimsum Platter",
     description: "Assortment of steamed and pan-fried dumplings",
     price: "₹699",
     image: dimsum3,
     category: "dimsums" as const,
   },
+  {
+    id: 7,
+    name: "Classic Cappuccino",
+    description: "Rich espresso with perfectly steamed milk and velvety foam",
+    price: "₹299",
+    image: bowl1,
+    category: "lolloccino" as const,
+    hasVideo: true,
+  },
+  {
+    id: 8,
+    name: "Iced Caramel Latte",
+    description: "Smooth espresso with caramel syrup and cold milk over ice",
+    price: "₹349",
+    image: bowl2,
+    category: "lolloccino" as const,
+  },
+  {
+    id: 9,
+    name: "Matcha Green Tea Latte",
+    description: "Premium Japanese matcha blended with creamy milk",
+    price: "₹399",
+    image: bowl3,
+    category: "lolloccino" as const,
+  },
+  {
+    id: 10,
+    name: "Signature Mocha",
+    description: "Rich chocolate and espresso blend topped with whipped cream",
+    price: "₹379",
+    image: sushi1,
+    category: "lolloccino" as const,
+  },
 ];
 
-type Category = "bowl-of-month" | "bowls" | "sushi" | "dimsums";
+type Category = "bowl-of-month" | "sushi" | "dimsums" | "lolloccino";
 
 export function DishGallery() {
   const [selectedCategory, setSelectedCategory] = useState<Category>("bowl-of-month");
@@ -108,9 +116,9 @@ export function DishGallery() {
 
   const categories: { value: Category; label: string }[] = [
     { value: "bowl-of-month", label: "Bowl of the Month" },
-    { value: "bowls", label: "Bowl Meals" },
     { value: "sushi", label: "Sushi" },
     { value: "dimsums", label: "Dimsums" },
+    { value: "lolloccino", label: "Lolloccino" },
   ];
 
   return (
