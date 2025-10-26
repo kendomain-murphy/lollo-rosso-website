@@ -69,7 +69,7 @@ export function MenuSection() {
               Navrangpura
             </TabsTrigger>
             <TabsTrigger value="adani-shantigram" data-testid="tab-adani-shantigram">
-              Adani Shantigram
+              Shantigram
             </TabsTrigger>
           </TabsList>
 
@@ -182,7 +182,7 @@ export function MenuSection() {
           <TabsContent value="adani-shantigram" data-testid="content-adani-shantigram">
             <Card className="p-8 text-center">
               <h3 className="font-serif text-2xl font-bold mb-4" data-testid="text-adani-shantigram-title">
-                Adani Shantigram Menu
+                Shantigram Menu
               </h3>
               <p className="text-muted-foreground" data-testid="text-adani-shantigram-description">
                 Coming soon - Full menu will be available shortly
