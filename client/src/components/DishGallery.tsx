@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { DishCard } from "./DishCard";
 import { Button } from "@/components/ui/button";
+import { bowlOfTheMonthConfig } from "@/config/bowlOfTheMonth";
 
 import sushi1 from "@assets/stock_images/fresh_sushi_platter__5ce826ac.jpg";
 import sushi2 from "@assets/stock_images/fresh_sushi_platter__df06bffe.jpg";
@@ -91,18 +92,22 @@ const dishes = [
   },
 ];
 
-type Category = "all" | "bowls" | "sushi" | "dimsums";
+type Category = "bowl-of-month" | "bowls" | "sushi" | "dimsums";
 
 export function DishGallery() {
-  const [selectedCategory, setSelectedCategory] = useState<Category>("all");
+  const [selectedCategory, setSelectedCategory] = useState<Category>("bowl-of-month");
 
-  const filteredDishes =
-    selectedCategory === "all"
-      ? dishes
-      : dishes.filter((dish) => dish.category === selectedCategory);
+  const getFilteredDishes = () => {
+    if (selectedCategory === "bowl-of-month") {
+      return [bowlOfTheMonthConfig.videoBowl, bowlOfTheMonthConfig.imageBowl];
+    }
+    return dishes.filter((dish) => dish.category === selectedCategory);
+  };
+
+  const filteredDishes = getFilteredDishes();
 
   const categories: { value: Category; label: string }[] = [
-    { value: "all", label: "All Dishes" },
+    { value: "bowl-of-month", label: "Bowl of the Month" },
     { value: "bowls", label: "Bowl Meals" },
     { value: "sushi", label: "Sushi" },
     { value: "dimsums", label: "Dimsums" },

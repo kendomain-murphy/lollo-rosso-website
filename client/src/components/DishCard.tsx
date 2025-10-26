@@ -6,7 +6,7 @@ interface DishCardProps {
   description: string;
   price: string;
   image: string;
-  category: "bowls" | "sushi" | "dimsums";
+  category: "bowls" | "sushi" | "dimsums" | "bowl-of-month";
   hasVideo?: boolean;
 }
 
