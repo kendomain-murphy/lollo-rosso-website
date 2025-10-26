@@ -5,39 +5,46 @@ import location2 from "@assets/stock_images/modern_restaurant_ex_2872d1ef.jpg";
 import location3 from "@assets/stock_images/modern_restaurant_ex_ae672835.jpg";
 import location4 from "@assets/stock_images/modern_restaurant_ex_de10af84.jpg";
 
-//todo: remove mock functionality
 const locations = [
   {
     id: 1,
-    name: "Bandra West",
-    address: "123 Linking Road, Bandra West, Mumbai, Maharashtra 400050",
-    phone: "+91 22 2640 5000",
-    hours: "Mon-Sun: 12:00 PM - 11:00 PM",
+    name: "Ahmedabad",
+    address: "Lollo Rosso, Ahmedabad, Gujarat",
+    phone: "+91 79 1234 5678",
+    hours: "Mon-Sun: 11:00 AM - 11:00 PM",
     image: location1,
+    mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+Ahmedabad",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235013.7037779135!2d72.41493108359375!3d23.020181900000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
   },
   {
     id: 2,
-    name: "Powai",
-    address: "456 Hiranandani Gardens, Powai, Mumbai, Maharashtra 400076",
-    phone: "+91 22 2570 3000",
-    hours: "Mon-Sun: 12:00 PM - 11:00 PM",
+    name: "Baroda",
+    address: "Lollo Rosso, Baroda, Gujarat",
+    phone: "+91 265 1234 5678",
+    hours: "Mon-Sun: 11:00 AM - 11:00 PM",
     image: location2,
+    mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+Baroda",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118571.8291254677!2d73.10322308515625!3d22.30731710000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc4c0a08d5f83%3A0x5c07f5ddfae2d71!2sVadodara%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
   },
   {
     id: 3,
-    name: "Lower Parel",
-    address: "789 High Street Phoenix, Lower Parel, Mumbai, Maharashtra 400013",
-    phone: "+91 22 4918 6000",
-    hours: "Mon-Sun: 12:00 PM - 11:30 PM",
+    name: "SVP Airport",
+    address: "Lollo Rosso, Sardar Vallabhbhai Patel International Airport, Ahmedabad",
+    phone: "+91 79 8765 4321",
+    hours: "Daily: 6:00 AM - 10:00 PM",
     image: location3,
+    mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+SVP+Airport+Ahmedabad",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.066743774816!2d72.62984007489855!3d23.07224791489968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b3d5cb0f3a7%3A0x3d8f7c5c9ff0b0e6!2sSardar%20Vallabhbhai%20Patel%20International%20Airport!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
   },
   {
     id: 4,
-    name: "Juhu",
-    address: "321 Juhu Tara Road, Juhu, Mumbai, Maharashtra 400049",
-    phone: "+91 22 2660 4000",
-    hours: "Mon-Sun: 12:00 PM - 11:00 PM",
+    name: "Goa",
+    address: "Lollo Rosso, Goa",
+    phone: "+91 832 1234 5678",
+    hours: "Mon-Sun: 11:00 AM - 11:30 PM",
     image: location4,
+    mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+Goa",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d492531.4398493049!2d73.61804988671875!3d15.348572900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfba106336b741%3A0xeaf887ff62f34092!2sGoa!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
   },
 ];
 
