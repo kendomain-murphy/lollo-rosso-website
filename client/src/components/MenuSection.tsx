@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight, Maximize2, X } from "lucide-react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectFlip, Navigation, Pagination, Zoom } from 'swiper/modules';
@@ -131,11 +131,11 @@ export function MenuSection() {
 
                 <button
                   onClick={openModal}
-                  className="absolute top-2 right-2 md:top-4 md:right-4 z-30 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all"
+                  className="absolute top-2 right-2 z-30 w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all md:hidden"
                   data-testid="button-menu-maximize"
                   title="View full screen"
                 >
-                  <Maximize2 className="h-5 w-5 md:h-6 md:w-6 text-foreground" />
+                  <Maximize2 className="h-5 w-5 text-foreground" />
                 </button>
               </div>
 
@@ -177,6 +177,10 @@ export function MenuSection() {
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="max-w-[95vw] max-h-[95vh] h-[95vh] p-0 overflow-hidden" data-testid="dialog-menu-viewer">
+          <DialogHeader className="sr-only">
+            <DialogTitle>Menu Viewer</DialogTitle>
+            <DialogDescription>View and zoom the menu. Pinch to zoom, swipe to navigate between pages.</DialogDescription>
+          </DialogHeader>
           <div className="relative w-full h-full bg-background">
             <div className="absolute top-2 right-2 z-50 flex items-center gap-2">
               <button
