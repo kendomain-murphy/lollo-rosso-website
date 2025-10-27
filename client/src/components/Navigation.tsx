@@ -87,11 +87,17 @@ export function Navigation() {
           <div className="flex items-center gap-2">
             <ThemeToggle />
             <Button
-              onClick={() => scrollToSection("contact")}
+              asChild
               className="hidden md:inline-flex"
               data-testid="button-order-now"
             >
-              Order Now
+              <a 
+                href="https://www.zomato.com/ahmedabad/lollo-rosso-bodakdev"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Order Now
+              </a>
             </Button>
             <Button
               variant="ghost"
@@ -153,11 +159,17 @@ export function Navigation() {
               Contact
             </button>
             <Button
-              onClick={() => scrollToSection("contact")}
+              asChild
               className="w-full"
               data-testid="button-order-now-mobile"
             >
-              Order Now
+              <a 
+                href="https://www.zomato.com/ahmedabad/lollo-rosso-bodakdev"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Order Now
+              </a>
             </Button>
           </div>
         </div>
