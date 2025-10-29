@@ -12,6 +12,10 @@ import bowl3 from "@assets/stock_images/asian_rice_bowl_heal_f146d037.jpg";
 import dimsum1 from "@assets/stock_images/steamed_dumplings_di_89c2ddce.jpg";
 import dimsum2 from "@assets/stock_images/steamed_dumplings_di_6a9e073e.jpg";
 import dimsum3 from "@assets/stock_images/steamed_dumplings_di_5183efc2.jpg";
+import lolloccino1 from "@assets/DSCF0236_1761590394289.jpeg";
+import lolloccino2 from "@assets/DSCF0411_1761590394291.jpeg";
+import lolloccino3 from "@assets/DSCF0883_1761590394294.jpeg";
+import lolloccino4 from "@assets/DSCF1135_1761590394296.jpeg";
 
 //todo: remove mock functionality
 const dishes = [
@@ -70,7 +74,7 @@ const dishes = [
     name: "Classic Cappuccino",
     description: "Rich espresso with perfectly steamed milk and velvety foam",
     price: "₹299",
-    image: bowl1,
+    image: lolloccino1,
     category: "lolloccino" as const,
     hasVideo: true,
   },
@@ -79,7 +83,7 @@ const dishes = [
     name: "Iced Caramel Latte",
     description: "Smooth espresso with caramel syrup and cold milk over ice",
     price: "₹349",
-    image: bowl2,
+    image: lolloccino2,
     category: "lolloccino" as const,
   },
   {
@@ -87,7 +91,7 @@ const dishes = [
     name: "Matcha Green Tea Latte",
     description: "Premium Japanese matcha blended with creamy milk",
     price: "₹399",
-    image: bowl3,
+    image: lolloccino3,
     category: "lolloccino" as const,
   },
   {
@@ -95,7 +99,7 @@ const dishes = [
     name: "Signature Mocha",
     description: "Rich chocolate and espresso blend topped with whipped cream",
     price: "₹379",
-    image: sushi1,
+    image: lolloccino4,
     category: "lolloccino" as const,
   },
 ];
