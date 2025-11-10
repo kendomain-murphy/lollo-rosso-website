@@ -43,7 +43,6 @@ export function HeroSection() {
           Your browser does not support the video tag.
         </video>
       </div>
-      
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60 z-5"></div>
       <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-10">
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -87,9 +86,7 @@ export function HeroSection() {
             className="bg-background/80 backdrop-blur-sm border-white/40 text-foreground hover:bg-background"
             onClick={() => scrollToSection("locations")}
             data-testid="button-find-location"
-          >
-            Find Location
-          </Button>
+          >Explore Lolloccino</Button>
         </div>
       </div>
     </section>
