@@ -76,7 +76,6 @@ export function HeroSection() {
           Your browser does not support the video tag.
         </video>
       </div>
-      
       <button
         onClick={prevSlide}
         className="absolute left-2 md:left-8 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-12 md:h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center border shadow-lg hover:bg-white transition-colors"
@@ -84,7 +83,6 @@ export function HeroSection() {
       >
         <ChevronLeft className="h-4 w-4 md:h-6 md:w-6 text-foreground" />
       </button>
-
       <button
         onClick={nextSlide}
         className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 z-20 w-8 h-8 md:w-12 md:h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center border shadow-lg hover:bg-white transition-colors"
@@ -92,7 +90,6 @@ export function HeroSection() {
       >
         <ChevronRight className="h-4 w-4 md:h-6 md:w-6 text-foreground" />
       </button>
-
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
         {heroContent.map((_, index) => (
           <button
@@ -107,9 +104,7 @@ export function HeroSection() {
           />
         ))}
       </div>
-      
       <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60 z-5"></div>
-      
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         {heroContent.map((content, index) => (
           <div
@@ -121,7 +116,7 @@ export function HeroSection() {
             <h1 className="font-mono text-5xl md:text-7xl font-bold mb-6 tracking-wider text-white" data-testid="text-hero-title">
               {content.title}
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto" data-testid="text-hero-subtitle">
+            <p className="md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto text-[20px]" data-testid="text-hero-subtitle">
               {content.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
