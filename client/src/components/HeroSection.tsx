@@ -113,9 +113,6 @@ export function HeroSection() {
               index === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
-            <h1 className="font-mono text-5xl md:text-7xl font-bold mb-6 tracking-wider text-white" data-testid="text-hero-title">
-              {content.title}
-            </h1>
             <p className="md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto text-[20px]" data-testid="text-hero-subtitle">
               {content.subtitle}
             </p>
