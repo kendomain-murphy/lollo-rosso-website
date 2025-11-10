@@ -113,7 +113,7 @@ export function HeroSection() {
               index === currentSlide ? "opacity-100" : "opacity-0 pointer-events-none"
             }`}
           >
-            <p className="md:text-2xl text-white/90 mb-8 max-w-2xl mx-auto text-[20px]" data-testid="text-hero-subtitle">
+            <p className="text-base md:text-xl lg:text-2xl text-white/90 mb-8 max-w-xl md:max-w-3xl mx-auto leading-relaxed" data-testid="text-hero-subtitle">
               {content.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
