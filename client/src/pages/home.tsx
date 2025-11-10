@@ -5,7 +5,7 @@ import { DishGallery } from "@/components/DishGallery";
 import { MenuSection } from "@/components/MenuSection";
 import { ServicesModal } from "@/components/ServicesModal";
 import { LocationsSection } from "@/components/LocationsSection";
-import { AwardsSection } from "@/components/AwardsSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -18,7 +18,7 @@ export default function Home() {
       <MenuSection />
       <ServicesModal />
       <LocationsSection />
-      <AwardsSection />
+      <TestimonialsSection />
       <Footer />
     </div>
   );

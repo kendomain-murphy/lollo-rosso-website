@@ -69,11 +69,11 @@ export function Navigation() {
               Locations
             </button>
             <button
-              onClick={() => scrollToSection("awards")}
+              onClick={() => scrollToSection("testimonials")}
               className="text-sm font-medium hover:text-primary transition-colors"
-              data-testid="link-awards"
+              data-testid="link-testimonials"
             >
-              Awards
+              Testimonials
             </button>
             <button
               onClick={() => scrollToSection("contact")}
@@ -145,11 +145,11 @@ export function Navigation() {
               Locations
             </button>
             <button
-              onClick={() => scrollToSection("awards")}
+              onClick={() => scrollToSection("testimonials")}
               className="block w-full text-left py-2 hover:text-primary transition-colors"
-              data-testid="link-awards-mobile"
+              data-testid="link-testimonials-mobile"
             >
-              Awards
+              Testimonials
             </button>
             <button
               onClick={() => scrollToSection("contact")}
