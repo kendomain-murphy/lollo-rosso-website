@@ -126,13 +126,13 @@ export function DishGallery() {
   ];
 
   return (
-    <section id="menu" className="py-20 px-6">
+    <section id="signature-dishes" className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" data-testid="text-menu-title">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" data-testid="text-signature-dishes-title">
             Our Signature Dishes
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-menu-subtitle">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-signature-dishes-subtitle">
             Discover our carefully crafted menu featuring the finest ingredients and authentic flavors
           </p>
         </div>
