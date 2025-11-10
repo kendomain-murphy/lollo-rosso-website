@@ -83,9 +83,7 @@ export function Footer() {
                   onClick={() => scrollToSection("awards")}
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   data-testid="link-footer-awards"
-                >
-                  Awards
-                </button>
+                >Testimonials</button>
               </li>
             </ul>
           </div>
