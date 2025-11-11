@@ -192,9 +192,7 @@ export function BarodaMenuSection() {
             <TabsTrigger value="lolloccino-beverages" data-testid="tab-baroda-lolloccino">
               Lolloccino-Beverages
             </TabsTrigger>
-            <TabsTrigger value="afternoon-selection" data-testid="tab-baroda-afternoon">
-              Afternoon Selection
-            </TabsTrigger>
+            <TabsTrigger value="afternoon-selection" data-testid="tab-baroda-afternoon">Midday Menu</TabsTrigger>
           </TabsList>
 
           <TabsContent value="main-menu" data-testid="content-baroda-main-menu">
@@ -231,7 +229,6 @@ export function BarodaMenuSection() {
           </TabsContent>
         </Tabs>
       </div>
-
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
         <DialogContent className="max-w-full max-h-full w-screen h-screen m-0 p-0 bg-black/95">
           <DialogHeader className="sr-only">
