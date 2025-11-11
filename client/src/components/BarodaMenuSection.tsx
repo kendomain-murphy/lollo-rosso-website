@@ -179,9 +179,7 @@ export function BarodaMenuSection() {
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" data-testid="text-baroda-menu-title">
             Baroda Menu
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-baroda-menu-subtitle">
-            Explore our delicious selection at Lollo Rosso Baroda
-          </p>
+          <p className="text-muted-foreground max-w-2xl mx-auto text-[16px]" data-testid="text-baroda-menu-subtitle">Explore our delicious selection at Lollo Rosso Baroda. Savor our thoughtfully curated afternoon menu, perfectly complemented by signature beverages from Lolloccino.</p>
         </div>
 
         <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full" data-testid="tabs-baroda-menu">
