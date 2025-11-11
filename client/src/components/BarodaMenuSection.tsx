@@ -13,6 +13,9 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/zoom';
 
+import afternoonPage1 from "@assets/LR-Baroda-Afternoon Menu-01_1762864669895.jpg";
+import afternoonPage2 from "@assets/LR-Baroda-Afternoon Menu-02_1762864669893.jpg";
+
 export function BarodaMenuSection() {
   const [activeTab, setActiveTab] = useState("main-menu");
   
@@ -29,7 +32,7 @@ export function BarodaMenuSection() {
   // Afternoon Selection state
   const afternoonSwiperRef = useRef<SwiperType | null>(null);
   const [afternoonCurrentPage, setAfternoonCurrentPage] = useState(0);
-  const afternoonPages: string[] = []; // TODO: Add menu images once uploaded
+  const afternoonPages: string[] = [afternoonPage1, afternoonPage2];
   
   // Modal state
   const modalSwiperRef = useRef<SwiperType | null>(null);
