@@ -27,6 +27,13 @@ export function HeroSection() {
     }
   };
 
+  const scrollToBarodaMenu = () => {
+    const element = document.getElementById("baroda-menu");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
@@ -61,7 +68,7 @@ export function HeroSection() {
                 Ahmedabad
               </DropdownMenuItem>
               <DropdownMenuItem
-                onClick={() => scrollToSection("menu")}
+                onClick={() => scrollToBarodaMenu()}
                 data-testid="menu-location-baroda"
               >
                 Baroda
