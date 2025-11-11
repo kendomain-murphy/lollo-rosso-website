@@ -3,6 +3,7 @@ import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
 import { DishGallery } from "@/components/DishGallery";
 import { MenuSection } from "@/components/MenuSection";
+import { BarodaMenuSection } from "@/components/BarodaMenuSection";
 import { ServicesModal } from "@/components/ServicesModal";
 import { LocationsSection } from "@/components/LocationsSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
@@ -16,6 +17,7 @@ export default function Home() {
       <AboutSection />
       <DishGallery />
       <MenuSection />
+      <BarodaMenuSection />
       <ServicesModal />
       <LocationsSection />
       <TestimonialsSection />
