@@ -189,9 +189,7 @@ export function BarodaMenuSection() {
             <TabsTrigger value="main-menu" data-testid="tab-baroda-main-menu">
               Main Menu
             </TabsTrigger>
-            <TabsTrigger value="lolloccino-beverages" data-testid="tab-baroda-lolloccino">
-              Lolloccino-Beverages
-            </TabsTrigger>
+            <TabsTrigger value="lolloccino-beverages" data-testid="tab-baroda-lolloccino">Lolloccino</TabsTrigger>
             <TabsTrigger value="afternoon-selection" data-testid="tab-baroda-afternoon">Midday Menu</TabsTrigger>
           </TabsList>
 
