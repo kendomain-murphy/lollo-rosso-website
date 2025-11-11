@@ -7,9 +7,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 
-import heroVideo from "@assets/Walk In _1762781293296.mp4";
-import heroPoster from "@assets/8-4064_1761394200452.jpg";
-
 export function HeroSection() {
 
   const scrollToSection = (id: string) => {
@@ -44,11 +41,11 @@ export function HeroSection() {
           loop
           muted
           playsInline
-          poster={heroPoster}
+          poster="/videos/hero-poster.jpg"
           className="w-full h-full object-cover"
           preload="auto"
         >
-          <source src={heroVideo} type="video/mp4" />
+          <source src="/videos/hero-walk-in.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
