@@ -61,6 +61,12 @@ export function MenuSection() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
+  // Update hash when tab is manually changed
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+    window.location.hash = `menu-${value}`;
+  };
+
   return (
     <section id="menu" className="py-20 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
@@ -73,7 +79,7 @@ export function MenuSection() {
           </p>
         </div>
 
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full" data-testid="tabs-menu-locations">
+        <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full" data-testid="tabs-menu-locations">
           <TabsList className="grid w-full grid-cols-3 mb-8" data-testid="tabs-list-menu">
             <TabsTrigger value="bodakdev" data-testid="tab-bodakdev">
               Bodakdev

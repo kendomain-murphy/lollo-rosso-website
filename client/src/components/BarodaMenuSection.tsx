@@ -16,20 +16,20 @@ import 'swiper/css/zoom';
 export function BarodaMenuSection() {
   const [activeTab, setActiveTab] = useState("main-menu");
   
-  // Main Menu state (placeholder - will be populated when images are uploaded)
+  // Main Menu state (will be populated when images are uploaded)
   const mainMenuSwiperRef = useRef<SwiperType | null>(null);
   const [mainMenuCurrentPage, setMainMenuCurrentPage] = useState(0);
-  const mainMenuPages: string[] = []; // Will be populated with uploaded images
+  const mainMenuPages: string[] = []; // TODO: Add menu images once uploaded
   
-  // Lolloccino-Beverages state (placeholder)
+  // Lolloccino-Beverages state
   const lolloccinoSwiperRef = useRef<SwiperType | null>(null);
   const [lolloccinoCurrentPage, setLolloccinoCurrentPage] = useState(0);
-  const lolloccinoPages: string[] = []; // Will be populated with uploaded images
+  const lolloccinoPages: string[] = []; // TODO: Add menu images once uploaded
   
-  // Afternoon Selection state (placeholder)
+  // Afternoon Selection state
   const afternoonSwiperRef = useRef<SwiperType | null>(null);
   const [afternoonCurrentPage, setAfternoonCurrentPage] = useState(0);
-  const afternoonPages: string[] = []; // Will be populated with uploaded images
+  const afternoonPages: string[] = []; // TODO: Add menu images once uploaded
   
   // Modal state
   const modalSwiperRef = useRef<SwiperType | null>(null);
@@ -41,6 +41,132 @@ export function BarodaMenuSection() {
     setModalMenuPages(menuPages);
     setModalPage(currentPage);
     setIsModalOpen(true);
+  };
+
+  // Update hash when tab is manually changed
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+    window.location.hash = `baroda-menu-${value}`;
+  };
+
+  // Render menu viewer or placeholder
+  const renderMenuViewer = (
+    menuPages: string[],
+    swiperRef: React.MutableRefObject<SwiperType | null>,
+    currentPage: number,
+    setCurrentPage: (page: number) => void,
+    title: string,
+    testIdPrefix: string
+  ) => {
+    if (menuPages.length === 0) {
+      return (
+        <Card className="p-8 text-center">
+          <h3 className="font-serif text-2xl font-bold mb-4" data-testid={`text-${testIdPrefix}-title`}>
+            {title}
+          </h3>
+          <p className="text-muted-foreground" data-testid={`text-${testIdPrefix}-description`}>
+            Menu images will be available shortly
+          </p>
+        </Card>
+      );
+    }
+
+    return (
+      <div className="relative">
+        <div className="relative rounded-lg overflow-visible shadow-2xl menu-swiper-container">
+          <Swiper
+            effect={'flip'}
+            grabCursor={true}
+            modules={[EffectFlip, Navigation, Pagination]}
+            className="menu-swiper"
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            onSlideChange={(swiper) => {
+              setCurrentPage(swiper.activeIndex);
+            }}
+            flipEffect={{
+              slideShadows: true,
+              limitRotation: true,
+            }}
+            style={{
+              minHeight: '400px',
+            }}
+          >
+            {menuPages.map((page, index) => (
+              <SwiperSlide key={index}>
+                <div className="relative w-full h-full bg-white rounded-lg shadow-xl overflow-y-auto min-h-[400px] md:min-h-[600px] lg:min-h-[700px]">
+                  <div 
+                    className="absolute inset-y-0 w-4 md:w-8 z-20 pointer-events-none"
+                    style={{
+                      right: index === 0 ? "0" : "auto",
+                      left: index === menuPages.length - 1 ? "0" : "auto",
+                      background: index === 0 
+                        ? "linear-gradient(to left, rgba(0,0,0,0.2), transparent)"
+                        : index === menuPages.length - 1
+                        ? "linear-gradient(to right, rgba(0,0,0,0.2), transparent)"
+                        : "none"
+                    }}
+                  />
+                  <img
+                    src={page}
+                    alt={`${title} Page ${index + 1}`}
+                    className="w-full h-auto object-contain"
+                    data-testid={`img-${testIdPrefix}-page-${index + 1}`}
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+
+          <button
+            onClick={() => swiperRef.current?.slidePrev()}
+            className="absolute left-1 md:left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all"
+            data-testid={`button-${testIdPrefix}-prev`}
+          >
+            <ChevronLeft className="h-5 w-5 md:h-7 md:w-7 text-foreground" />
+          </button>
+
+          <button
+            onClick={() => swiperRef.current?.slideNext()}
+            className="absolute right-1 md:right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all"
+            data-testid={`button-${testIdPrefix}-next`}
+          >
+            <ChevronRight className="h-5 w-5 md:h-7 md:w-7 text-foreground" />
+          </button>
+
+          <button
+            onClick={() => openModal(menuPages, currentPage)}
+            className="absolute top-2 right-2 z-30 w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all md:hidden"
+            data-testid={`button-${testIdPrefix}-maximize`}
+            title="View full screen"
+          >
+            <Maximize2 className="h-5 w-5 text-foreground" />
+          </button>
+        </div>
+
+        <div className="flex justify-center gap-2 md:gap-3 mt-6 md:mt-8">
+          {menuPages.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => swiperRef.current?.slideTo(index)}
+              className={`transition-all ${
+                index === currentPage
+                  ? "w-8 md:w-12 h-2 md:h-3 bg-foreground rounded-full"
+                  : "w-2 md:w-3 h-2 md:h-3 bg-foreground/40 rounded-full hover:bg-foreground/70"
+              }`}
+              data-testid={`button-${testIdPrefix}-dot-${index}`}
+            />
+          ))}
+        </div>
+
+        <div className="text-center mt-4 md:mt-6">
+          <p className="text-sm md:text-base font-medium text-foreground" data-testid={`text-${testIdPrefix}-page-indicator`}>
+            Page {currentPage + 1} of {menuPages.length}
+          </p>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -55,7 +181,7 @@ export function BarodaMenuSection() {
           </p>
         </div>
 
-        <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full" data-testid="tabs-baroda-menu">
+        <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full" data-testid="tabs-baroda-menu">
           <TabsList className="grid w-full grid-cols-3 mb-8" data-testid="tabs-list-baroda">
             <TabsTrigger value="main-menu" data-testid="tab-baroda-main-menu">
               Main Menu
@@ -69,36 +195,36 @@ export function BarodaMenuSection() {
           </TabsList>
 
           <TabsContent value="main-menu" data-testid="content-baroda-main-menu">
-            <Card className="p-8 text-center">
-              <h3 className="font-serif text-2xl font-bold mb-4" data-testid="text-baroda-main-menu-title">
-                Main Menu
-              </h3>
-              <p className="text-muted-foreground" data-testid="text-baroda-main-menu-description">
-                Menu images will be available shortly
-              </p>
-            </Card>
+            {renderMenuViewer(
+              mainMenuPages,
+              mainMenuSwiperRef,
+              mainMenuCurrentPage,
+              setMainMenuCurrentPage,
+              "Main Menu",
+              "baroda-main-menu"
+            )}
           </TabsContent>
 
           <TabsContent value="lolloccino-beverages" data-testid="content-baroda-lolloccino">
-            <Card className="p-8 text-center">
-              <h3 className="font-serif text-2xl font-bold mb-4" data-testid="text-baroda-lolloccino-title">
-                Lolloccino-Beverages
-              </h3>
-              <p className="text-muted-foreground" data-testid="text-baroda-lolloccino-description">
-                Menu images will be available shortly
-              </p>
-            </Card>
+            {renderMenuViewer(
+              lolloccinoPages,
+              lolloccinoSwiperRef,
+              lolloccinoCurrentPage,
+              setLolloccinoCurrentPage,
+              "Lolloccino-Beverages",
+              "baroda-lolloccino"
+            )}
           </TabsContent>
 
           <TabsContent value="afternoon-selection" data-testid="content-baroda-afternoon">
-            <Card className="p-8 text-center">
-              <h3 className="font-serif text-2xl font-bold mb-4" data-testid="text-baroda-afternoon-title">
-                Afternoon Selection
-              </h3>
-              <p className="text-muted-foreground" data-testid="text-baroda-afternoon-description">
-                Menu images will be available shortly
-              </p>
-            </Card>
+            {renderMenuViewer(
+              afternoonPages,
+              afternoonSwiperRef,
+              afternoonCurrentPage,
+              setAfternoonCurrentPage,
+              "Afternoon Selection",
+              "baroda-afternoon"
+            )}
           </TabsContent>
         </Tabs>
       </div>
