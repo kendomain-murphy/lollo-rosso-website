@@ -210,7 +210,7 @@ export function BarodaMenuSection() {
               lolloccinoSwiperRef,
               lolloccinoCurrentPage,
               setLolloccinoCurrentPage,
-              "Lolloccino-Beverages",
+              "Lolloccino",
               "baroda-lolloccino"
             )}
           </TabsContent>
@@ -221,7 +221,7 @@ export function BarodaMenuSection() {
               afternoonSwiperRef,
               afternoonCurrentPage,
               setAfternoonCurrentPage,
-              "Afternoon Selection",
+              "Midday Menu",
               "baroda-afternoon"
             )}
           </TabsContent>
