@@ -16,6 +16,8 @@ import 'swiper/css/zoom';
 
 import menuPage1 from "@assets/LR_Navrangpura_Menu_Pg1_1761485687851.jpg";
 import menuPage2 from "@assets/LR_Navrangpura_Menu_Pg2_1761485687853.jpg";
+import bodakdevPage1 from "@assets/LR-Bodakdev-Menu-01_1762864151527.jpg";
+import bodakdevPage2 from "@assets/LR-Bodakdev-Menu-02_1762864151529.jpg";
 import shantigramPage1 from "@assets/LR-Shantigram Menu_1_1762793197030.jpg";
 import shantigramPage2 from "@assets/LR-Shantigram_Menu-2_1762793197033.jpg";
 
@@ -26,6 +28,11 @@ export function MenuSection() {
   const navrangpuraSwiperRef = useRef<SwiperType | null>(null);
   const [navrangpuraCurrentPage, setNavrangpuraCurrentPage] = useState(0);
   const navrangpuraMenuPages = [menuPage1, menuPage2];
+  
+  // Bodakdev menu state
+  const bodakdevSwiperRef = useRef<SwiperType | null>(null);
+  const [bodakdevCurrentPage, setBodakdevCurrentPage] = useState(0);
+  const bodakdevMenuPages = [bodakdevPage1, bodakdevPage2];
   
   // Shantigram menu state
   const shantigramSwiperRef = useRef<SwiperType | null>(null);
@@ -93,14 +100,98 @@ export function MenuSection() {
           </TabsList>
 
           <TabsContent value="bodakdev" data-testid="content-bodakdev">
-            <Card className="p-8 text-center">
-              <h3 className="font-serif text-2xl font-bold mb-4" data-testid="text-bodakdev-title">
-                Bodakdev Menu
-              </h3>
-              <p className="text-muted-foreground" data-testid="text-bodakdev-description">
-                Coming soon - Full menu will be available shortly
-              </p>
-            </Card>
+            <div className="relative">
+              <div className="relative rounded-lg overflow-visible shadow-2xl menu-swiper-container">
+                <Swiper
+                  effect={'flip'}
+                  grabCursor={true}
+                  modules={[EffectFlip, Navigation, Pagination]}
+                  className="menu-swiper"
+                  onSwiper={(swiper) => {
+                    bodakdevSwiperRef.current = swiper;
+                  }}
+                  onSlideChange={(swiper) => {
+                    setBodakdevCurrentPage(swiper.activeIndex);
+                  }}
+                  flipEffect={{
+                    slideShadows: true,
+                    limitRotation: true,
+                  }}
+                  style={{
+                    minHeight: '400px',
+                  }}
+                >
+                  {bodakdevMenuPages.map((page, index) => (
+                    <SwiperSlide key={index}>
+                      <div className="relative w-full h-full bg-white rounded-lg shadow-xl overflow-y-auto min-h-[400px] md:min-h-[600px] lg:min-h-[700px]">
+                        <div 
+                          className="absolute inset-y-0 w-4 md:w-8 z-20 pointer-events-none"
+                          style={{
+                            right: index === 0 ? "0" : "auto",
+                            left: index === 1 ? "0" : "auto",
+                            background: index === 0 
+                              ? "linear-gradient(to left, rgba(0,0,0,0.2), transparent)"
+                              : "linear-gradient(to right, rgba(0,0,0,0.2), transparent)"
+                          }}
+                        />
+                        <img
+                          src={page}
+                          alt={`Bodakdev Menu Page ${index + 1}`}
+                          className="w-full h-auto object-contain"
+                          data-testid={`img-bodakdev-menu-page-${index + 1}`}
+                        />
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+
+                <button
+                  onClick={() => bodakdevSwiperRef.current?.slidePrev()}
+                  className="absolute left-1 md:left-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all"
+                  data-testid="button-bodakdev-menu-prev"
+                >
+                  <ChevronLeft className="h-5 w-5 md:h-7 md:w-7 text-foreground" />
+                </button>
+
+                <button
+                  onClick={() => bodakdevSwiperRef.current?.slideNext()}
+                  className="absolute right-1 md:right-4 top-1/2 -translate-y-1/2 z-30 w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all"
+                  data-testid="button-bodakdev-menu-next"
+                >
+                  <ChevronRight className="h-5 w-5 md:h-7 md:w-7 text-foreground" />
+                </button>
+
+                <button
+                  onClick={() => openModal(bodakdevMenuPages, bodakdevCurrentPage)}
+                  className="absolute top-2 right-2 z-30 w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all md:hidden"
+                  data-testid="button-bodakdev-menu-maximize"
+                  title="View full screen"
+                >
+                  <Maximize2 className="h-5 w-5 text-foreground" />
+                </button>
+              </div>
+
+              <div className="flex justify-center gap-2 md:gap-3 mt-6 md:mt-8">
+                {bodakdevMenuPages.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => bodakdevSwiperRef.current?.slideTo(index)}
+                    className={`transition-all ${
+                      index === bodakdevCurrentPage
+                        ? "w-8 md:w-12 h-2 md:h-3 bg-foreground rounded-full"
+                        : "w-2 md:w-3 h-2 md:h-3 bg-foreground/40 rounded-full hover:bg-foreground/70"
+                    }`}
+                    data-testid={`button-bodakdev-menu-page-${index + 1}`}
+                  >
+                    <span className="sr-only">Page {index + 1}</span>
+                  </button>
+                ))}
+              </div>
+
+              <div className="text-center mt-4 md:mt-6 text-sm text-muted-foreground" data-testid="text-bodakdev-page-indicator">
+                Page {bodakdevCurrentPage + 1} of {bodakdevMenuPages.length}
+              </div>
+            </div>
           </TabsContent>
 
           <TabsContent value="navrangpura" data-testid="content-navrangpura">
