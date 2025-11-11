@@ -20,10 +20,12 @@ export function HeroSection() {
   };
 
   const scrollToMenuWithTab = (tab: string) => {
-    window.location.hash = `menu-${tab}`;
     const element = document.getElementById("menu");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        window.location.hash = `menu-${tab}`;
+      }, 100);
     }
   };
 
