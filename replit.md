@@ -31,7 +31,9 @@ Preferred communication style: Simple, everyday language.
 
 **Media Handling**
 - Static assets stored in `attached_assets/` directory aliased as `@assets`
-- Video content served directly through Vite's static file serving
+- Large media files (videos) served from `client/public/` folder which is copied to `dist/public/` during production builds
+- Hero video stored in `client/public/videos/` for optimal delivery
+- **IMPORTANT**: Hero video file size should be under 10MB for optimal web performance. Current video is 43MB and should be compressed
 - Images imported as modules for optimal bundling and caching
 - Swiper.js for carousel/slider functionality (menu pages, testimonials)
 

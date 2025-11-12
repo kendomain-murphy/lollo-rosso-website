@@ -20,9 +20,29 @@ export function HeroSection() {
     const element = document.getElementById("menu");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setTimeout(() => {
-        window.location.hash = `menu-${tab}`;
-      }, 800);
+      
+      // Use multiple checks to ensure scroll completes
+      const setHashWhenReady = (attempts = 0) => {
+        if (attempts > 20) {
+          // Fallback: set hash anyway after max attempts
+          window.location.hash = `menu-${tab}`;
+          return;
+        }
+        
+        // Check if element is in viewport
+        const rect = element.getBoundingClientRect();
+        const isVisible = rect.top >= 0 && rect.top <= window.innerHeight;
+        
+        if (isVisible) {
+          window.location.hash = `menu-${tab}`;
+        } else {
+          // Check again in 100ms
+          setTimeout(() => setHashWhenReady(attempts + 1), 100);
+        }
+      };
+      
+      // Start checking after initial delay
+      setTimeout(() => setHashWhenReady(), 300);
     }
   };
 
