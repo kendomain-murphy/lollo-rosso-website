@@ -22,7 +22,7 @@ export function HeroSection() {
       element.scrollIntoView({ behavior: "smooth" });
       setTimeout(() => {
         window.location.hash = `menu-${tab}`;
-      }, 100);
+      }, 800);
     }
   };
 
