@@ -13,16 +13,18 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/zoom';
 
+import mainMenuPage1 from "@assets/LR-Baroda-Menu-01_1763295173582.jpg";
+import mainMenuPage2 from "@assets/LR-Baroda-Menu-02_1763295173591.jpg";
 import afternoonPage1 from "@assets/LR-Baroda-Afternoon Menu-01_1762864669895.jpg";
 import afternoonPage2 from "@assets/LR-Baroda-Afternoon Menu-02_1762864669893.jpg";
 
 export function BarodaMenuSection() {
   const [activeTab, setActiveTab] = useState("main-menu");
   
-  // Main Menu state (will be populated when images are uploaded)
+  // Main Menu state
   const mainMenuSwiperRef = useRef<SwiperType | null>(null);
   const [mainMenuCurrentPage, setMainMenuCurrentPage] = useState(0);
-  const mainMenuPages: string[] = []; // TODO: Add menu images once uploaded
+  const mainMenuPages: string[] = [mainMenuPage1, mainMenuPage2];
   
   // Lolloccino-Beverages state
   const lolloccinoSwiperRef = useRef<SwiperType | null>(null);
