@@ -97,9 +97,7 @@ export function Footer() {
                   href="tel:+912226405000"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   data-testid="link-footer-phone"
-                >
-                  +91 22 2640 5000
-                </a>
+                >+91 79 4897 7329</a>
               </li>
               <li className="flex gap-2">
                 <Mail className="h-5 w-5 text-primary flex-shrink-0" />
@@ -113,9 +111,7 @@ export function Footer() {
               </li>
               <li className="flex gap-2">
                 <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
-                <span className="text-sm text-muted-foreground">
-                  Mumbai, India
-                </span>
+                <span className="text-sm text-muted-foreground">Ahmedabad, India</span>
               </li>
             </ul>
           </div>
