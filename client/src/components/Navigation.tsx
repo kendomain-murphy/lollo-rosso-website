@@ -54,10 +54,10 @@ export function Navigation() {
               Menu
             </button>
             <button
-              onClick={() => scrollToSection("services")}
+              onClick={() => scrollToSection("reservations")}
               className="hover:text-primary transition-colors"
-              title="Services"
-              data-testid="link-services"
+              title="Reserve Table"
+              data-testid="link-reservations"
             >
               <Sparkles className="w-5 h-5" />
             </button>
@@ -130,12 +130,13 @@ export function Navigation() {
               Menu
             </button>
             <button
-              onClick={() => scrollToSection("services")}
+              onClick={() => scrollToSection("reservations")}
               className="flex items-center w-full text-left py-2 hover:text-primary transition-colors"
-              title="Services"
-              data-testid="link-services-mobile"
+              title="Reserve Table"
+              data-testid="link-reservations-mobile"
             >
-              <Sparkles className="w-5 h-5" />
+              <Sparkles className="w-5 h-5 mr-2" />
+              <span>Reserve Table</span>
             </button>
             <button
               onClick={() => scrollToSection("locations")}
