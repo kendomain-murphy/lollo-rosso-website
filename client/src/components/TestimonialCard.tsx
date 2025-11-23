@@ -71,10 +71,6 @@ export function TestimonialCard({
             </button>
           </div>
         )}
-
-        <div className="absolute top-3 right-3 bg-background/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium pointer-events-none">
-          {platform}
-        </div>
       </div>
     </Card>
   );
