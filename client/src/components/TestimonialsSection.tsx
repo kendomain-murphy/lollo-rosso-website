@@ -19,26 +19,31 @@ import thumb5 from "@assets/stock_images/fresh_sushi_platter__5ce826ac.jpg";
 const testimonials = [
   {
     id: 1,
+    videoUrl: "/videos/testimonials/testimonial-1.mp4",
     thumbnail: thumb1,
     platform: "Instagram",
   },
   {
     id: 2,
+    videoUrl: "/videos/testimonials/airport-testimonial.mp4",
     thumbnail: thumb2,
     platform: "Instagram",
   },
   {
     id: 3,
+    videoUrl: "/videos/testimonials/kids-testimonial-1.mp4",
     thumbnail: thumb3,
     platform: "Google",
   },
   {
     id: 4,
+    videoUrl: "/videos/testimonials/kids-testimonial-2.mp4",
     thumbnail: thumb4,
-    platform: "Zomato",
+    platform: "Instagram",
   },
   {
     id: 5,
+    videoUrl: "/videos/testimonials/morning-afternoon-night.mp4",
     thumbnail: thumb5,
     platform: "Instagram",
   },
