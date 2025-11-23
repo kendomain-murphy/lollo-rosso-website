@@ -99,7 +99,7 @@ export default function ReservationPage() {
             src={location.reservationUrl}
             title={`Reservations for ${location.name}`}
             className="w-full h-full absolute inset-0 border-0"
-            sandbox=""
+            sandbox="allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox"
             referrerPolicy="no-referrer"
             data-testid="iframe-reservation"
             loading="lazy"
