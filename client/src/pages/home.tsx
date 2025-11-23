@@ -1,7 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/HeroSection";
 import { AboutSection } from "@/components/AboutSection";
-import { DishGallery } from "@/components/DishGallery";
+import { ReservationSection } from "@/components/ReservationSection";
 import { MenuSection } from "@/components/MenuSection";
 import { BarodaMenuSection } from "@/components/BarodaMenuSection";
 import { ServicesModal } from "@/components/ServicesModal";
@@ -15,10 +15,7 @@ export default function Home() {
       <Navigation />
       <HeroSection />
       <AboutSection />
-      <DishGallery />
-      <MenuSection />
-      <BarodaMenuSection />
-      <ServicesModal />
+      <ReservationSection />
       <LocationsSection />
       <TestimonialsSection />
       <Footer />
