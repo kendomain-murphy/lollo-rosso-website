@@ -180,9 +180,7 @@ export function BarodaMenuSection() {
     <section id="baroda-menu" className="py-20 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" data-testid="text-baroda-menu-title">
-            Bodakdev, Ahmedabad
-          </h2>
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" data-testid="text-baroda-menu-title">Baroda</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-[16px]" data-testid="text-baroda-menu-subtitle">Explore our delicious selection at Lollo Rosso Bodakdev. Savor our thoughtfully curated menu, perfectly complemented by signature beverages from Lolloccino.</p>
         </div>
 
