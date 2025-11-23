@@ -83,11 +83,7 @@ export function AboutSection() {
                 A Culinary Journey Through Asia
               </h3>
               <div className="space-y-4 text-muted-foreground">
-                <p data-testid="text-about-description-1">
-                  Founded with a passion for authentic Asian cuisine, Lollo Rosso has become Mumbai's 
-                  premier destination for exquisite bowl meals, sushi, and dimsums. Our journey began 
-                  with a simple vision: to bring the diverse flavors of Asia to one exceptional dining experience.
-                </p>
+                <p data-testid="text-about-description-1">Founded with a passion for authentic Asian cuisine, Lollo Rosso has become India's premier destination for exquisite bowl meals, sushi, and dimsums. Our journey began with a simple vision: to bring the diverse flavors of Asia to one exceptional dining experience.</p>
                 <p data-testid="text-about-description-2">
                   Each dish is crafted with meticulous attention to detail, using traditional techniques 
                   passed down through generations, combined with contemporary culinary innovation. We 
