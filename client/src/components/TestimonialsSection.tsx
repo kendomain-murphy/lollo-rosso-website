@@ -10,41 +10,35 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import thumb1 from "@assets/stock_images/modern_restaurant_ex_f278a98c.jpg";
-import thumb2 from "@assets/stock_images/modern_restaurant_ex_2872d1ef.jpg";
-import thumb3 from "@assets/stock_images/modern_restaurant_ex_ae672835.jpg";
-import thumb4 from "@assets/stock_images/modern_restaurant_ex_de10af84.jpg";
-import thumb5 from "@assets/stock_images/fresh_sushi_platter__5ce826ac.jpg";
-
 const testimonials = [
   {
     id: 1,
     videoUrl: "/videos/testimonials/testimonial-1.mp4",
-    thumbnail: thumb1,
+    thumbnail: "/videos/testimonials/posters/testimonial-1.jpg",
     platform: "Instagram",
   },
   {
     id: 2,
     videoUrl: "/videos/testimonials/airport-testimonial.mp4",
-    thumbnail: thumb2,
+    thumbnail: "/videos/testimonials/posters/airport-testimonial.jpg",
     platform: "Instagram",
   },
   {
     id: 3,
     videoUrl: "/videos/testimonials/kids-testimonial-1.mp4",
-    thumbnail: thumb3,
+    thumbnail: "/videos/testimonials/posters/kids-testimonial-1.jpg",
     platform: "Google",
   },
   {
     id: 4,
     videoUrl: "/videos/testimonials/kids-testimonial-2.mp4",
-    thumbnail: thumb4,
+    thumbnail: "/videos/testimonials/posters/kids-testimonial-2.jpg",
     platform: "Instagram",
   },
   {
     id: 5,
     videoUrl: "/videos/testimonials/morning-afternoon-night.mp4",
-    thumbnail: thumb5,
+    thumbnail: "/videos/testimonials/posters/morning-afternoon-night.jpg",
     platform: "Instagram",
   },
 ];

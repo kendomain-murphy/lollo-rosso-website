@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Play } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 interface TestimonialCardProps {
   id: number;
@@ -16,9 +16,16 @@ export function TestimonialCard({
   platform = "Instagram"
 }: TestimonialCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handlePlay = () => {
-    setIsPlaying(true);
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+    }
   };
 
   return (
@@ -29,13 +36,16 @@ export function TestimonialCard({
       <div className="relative aspect-[9/16] overflow-hidden bg-muted">
         {videoUrl ? (
           <video
+            ref={videoRef}
             src={videoUrl}
             poster={thumbnail}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover cursor-pointer"
             playsInline
             preload="metadata"
-            onPlay={handlePlay}
+            onPlay={() => setIsPlaying(true)}
             onPause={() => setIsPlaying(false)}
+            onClick={handleVideoClick}
+            data-testid={`video-${id}`}
           >
             Your browser does not support the video tag.
           </video>
@@ -48,15 +58,13 @@ export function TestimonialCard({
         )}
 
         {!isPlaying && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity group-hover:bg-black/30">
+          <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-opacity group-hover:bg-black/30 pointer-events-none">
             <button
               onClick={(e) => {
-                if (videoUrl) {
-                  const video = e.currentTarget.parentElement?.parentElement?.querySelector('video') as HTMLVideoElement;
-                  video?.play();
-                }
+                e.stopPropagation();
+                videoRef.current?.play();
               }}
-              className="bg-background/95 backdrop-blur-sm rounded-full p-6 hover-elevate active-elevate-2 transition-transform hover:scale-110"
+              className="bg-background/95 backdrop-blur-sm rounded-full p-6 hover-elevate active-elevate-2 transition-transform hover:scale-110 pointer-events-auto"
               data-testid={`button-play-${id}`}
             >
               <Play className="h-12 w-12 text-primary fill-primary" />
@@ -64,7 +72,7 @@ export function TestimonialCard({
           </div>
         )}
 
-        <div className="absolute top-3 right-3 bg-background/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium">
+        <div className="absolute top-3 right-3 bg-background/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-medium pointer-events-none">
           {platform}
         </div>
       </div>
