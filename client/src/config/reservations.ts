@@ -41,9 +41,9 @@ export const restaurantLocations: RestaurantLocation[] = [
     reservationUrl: "", // TinyURL to be provided - must be from tinyurl.com or tiny.one
   },
   {
-    id: "svp-airport",
-    name: "SVP Airport",
-    description: "Quick bites before your journey",
+    id: "vijay-cross-road",
+    name: "Vijay Cross Road",
+    description: "Exclusive vegetarian delights in a refined setting",
     thumbnailImage: "", // Will be updated with actual image
     reservationUrl: "", // TinyURL to be provided - must be from tinyurl.com or tiny.one
   },
