@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a website for Lollo Rosso, an Asian fusion restaurant chain with multiple locations across India (Bodakdev/Ahmedabad, Baroda, SVP Airport, and Goa). The website features a premium, visually-rich design emphasizing food imagery, with sections for about, table reservations, locations, testimonials, and services. The site includes an integrated reservation system that allows visitors to book tables at any of the four locations through embedded TinyURL links.
+This is a website for Lollo Rosso, an Asian fusion restaurant chain with multiple locations across India (Bodakdev/Ahmedabad, Baroda, SVP Airport, and Adani Shantigram). The website features a premium, visually-rich design emphasizing food imagery, with sections for about, table reservations, locations, testimonials, and services. The site includes an integrated reservation system that allows visitors to book tables at any of the four locations through embedded TinyURL links.
 
 ## User Preferences
 

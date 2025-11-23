@@ -48,9 +48,9 @@ export const restaurantLocations: RestaurantLocation[] = [
     reservationUrl: "", // TinyURL to be provided - must be from tinyurl.com or tiny.one
   },
   {
-    id: "goa",
-    name: "Goa",
-    description: "Coastal dining with Asian flair",
+    id: "adani-shantigram",
+    name: "Adani Shantigram",
+    description: "Outdoor seating with delightful breakfast offerings",
     thumbnailImage: "", // Will be updated with actual image
     reservationUrl: "", // TinyURL to be provided - must be from tinyurl.com or tiny.one
   },
