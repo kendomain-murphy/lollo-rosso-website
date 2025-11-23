@@ -15,6 +15,8 @@ import 'swiper/css/zoom';
 
 import mainMenuPage1 from "@assets/LR-Baroda-Menu-01_1763295173582.jpg";
 import mainMenuPage2 from "@assets/LR-Baroda-Menu-02_1763295173591.jpg";
+import lolloccinoPage1 from "@assets/LR-Baroda-Beverage Menu-01_1763897205211.jpg";
+import lolloccinoPage2 from "@assets/LR-Baroda-Beverage Menu-02_1763897205209.jpg";
 import afternoonPage1 from "@assets/LR-Baroda-Afternoon Menu-01_1762864669895.jpg";
 import afternoonPage2 from "@assets/LR-Baroda-Afternoon Menu-02_1762864669893.jpg";
 
@@ -29,7 +31,7 @@ export function BarodaMenuSection() {
   // Lolloccino-Beverages state
   const lolloccinoSwiperRef = useRef<SwiperType | null>(null);
   const [lolloccinoCurrentPage, setLolloccinoCurrentPage] = useState(0);
-  const lolloccinoPages: string[] = []; // TODO: Add menu images once uploaded
+  const lolloccinoPages: string[] = [lolloccinoPage1, lolloccinoPage2];
   
   // Afternoon Selection state
   const afternoonSwiperRef = useRef<SwiperType | null>(null);
