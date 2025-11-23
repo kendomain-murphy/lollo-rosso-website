@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a single-page website for Lollo Rosso, an Asian fusion restaurant chain with multiple locations across India (Ahmedabad, Baroda, SVP Airport, and Goa). The website showcases the restaurant's menu offerings including bowl meals, sushi, dimsums, and a specialty "Lolloccino" section. It features a premium, visually-rich design emphasizing food imagery, with sections for about, menu, locations, testimonials, awards, and services. The site includes a monthly-updated "Bowl of the Month" feature that can be easily maintained by non-technical users through a configuration file.
+This is a website for Lollo Rosso, an Asian fusion restaurant chain with multiple locations across India (Bodakdev/Ahmedabad, Baroda, SVP Airport, and Goa). The website features a premium, visually-rich design emphasizing food imagery, with sections for about, table reservations, locations, testimonials, and services. The site includes an integrated reservation system that allows visitors to book tables at any of the four locations through embedded TinyURL links.
 
 ## User Preferences
 
@@ -15,8 +15,8 @@ Preferred communication style: Simple, everyday language.
 **Framework & Build Tools**
 - React 18 with TypeScript for type-safe component development
 - Vite as the build tool and development server, providing fast HMR and optimized production builds
-- Wouter for lightweight client-side routing (single-page application architecture)
-- Single route architecture - the entire experience is on the home page with smooth scrolling sections
+- Wouter for lightweight client-side routing
+- Multi-route architecture: Home page (/) and reservation pages (/reserve/:location) for embedded booking experiences
 
 **UI Component System**
 - Radix UI primitives for accessible, unstyled component foundations (dialogs, dropdowns, tabs, etc.)
@@ -71,17 +71,19 @@ Preferred communication style: Simple, everyday language.
 
 ### Content Management
 
-**Bowl of the Month System**
-- Configuration-based content updates (`client/src/config/bowlOfTheMonth.ts`)
-- Non-technical user workflow documented in `BOWL_OF_MONTH_GUIDE.md`
-- Supports both video and image featured bowls
-- Monthly updates require only file uploads and config edits (no code changes)
+**Reservation System**
+- Configuration-based restaurant locations (`client/src/config/reservations.ts`)
+- Four location tiles displayed on homepage with thumbnail images
+- Each location can have a unique TinyURL for reservation bookings
+- Reservation pages (/reserve/:location) display embedded iframe with Navigation bar
+- Secure iframe implementation with restricted sandbox permissions
+- Buttons are disabled until TinyURL is configured for each location
 
 **Static Content**
-- Menu images served as static PDFs/images with modal viewer
 - Multi-location support with embedded Google Maps
 - Awards section with trophy images and descriptions
 - Services modal with detailed offerings (catering, events, workshops)
+- Menu pages hidden from main navigation (Bodakdev menu accessible via direct route)
 
 ### External Dependencies
 
