@@ -12,14 +12,28 @@ export function HeroSection() {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const navHeight = 64; // Height of fixed navigation (h-16 = 64px)
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     }
   };
 
   const scrollToMenuWithTab = (tab: string) => {
     const element = document.getElementById("menu");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const navHeight = 64; // Height of fixed navigation (h-16 = 64px)
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
       
       // Use multiple checks to ensure scroll completes
       const setHashWhenReady = (attempts = 0) => {
@@ -29,11 +43,11 @@ export function HeroSection() {
           return;
         }
         
-        // Check if element is in viewport
-        const rect = element.getBoundingClientRect();
-        const isVisible = rect.top >= 0 && rect.top <= window.innerHeight;
+        // Check if scroll is close to target position
+        const currentScroll = window.pageYOffset;
+        const isAtTarget = Math.abs(currentScroll - offsetPosition) < 50;
         
-        if (isVisible) {
+        if (isAtTarget) {
           window.location.hash = `menu-${tab}`;
         } else {
           // Check again in 100ms
@@ -49,7 +63,14 @@ export function HeroSection() {
   const scrollToBarodaMenu = () => {
     const element = document.getElementById("baroda-menu");
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const navHeight = 64; // Height of fixed navigation (h-16 = 64px)
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - navHeight;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
     }
   };
 
