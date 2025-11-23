@@ -89,10 +89,7 @@ export function AboutSection() {
                   passed down through generations, combined with contemporary culinary innovation. We 
                   source only the freshest ingredients to ensure every meal is a celebration of flavor.
                 </p>
-                <p data-testid="text-about-description-3">
-                  Today, with four locations across Mumbai, we continue to serve thousands of guests who 
-                  appreciate the artistry and authenticity of Asian fusion cuisine.
-                </p>
+                <p data-testid="text-about-description-3">Today, with multiple locations across Ahmedabad & Baroda we continue to serve thousands of guests who appreciate the artistry and authenticity of Global fusion cuisine.</p>
               </div>
             </div>
           </div>
