@@ -10,68 +10,59 @@ import { ChevronDown } from "lucide-react";
 export function HeroSection() {
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const navHeight = 64; // Height of fixed navigation (h-16 = 64px)
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - navHeight;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
+    // Use requestAnimationFrame to ensure DOM is ready
+    requestAnimationFrame(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        const navHeight = 80; // Increased to account for navigation + padding
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - navHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    });
   };
 
   const scrollToMenuWithTab = (tab: string) => {
-    const element = document.getElementById("menu");
-    if (element) {
-      const navHeight = 64; // Height of fixed navigation (h-16 = 64px)
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - navHeight;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-      
-      // Use multiple checks to ensure scroll completes
-      const setHashWhenReady = (attempts = 0) => {
-        if (attempts > 20) {
-          // Fallback: set hash anyway after max attempts
-          window.location.hash = `menu-${tab}`;
-          return;
-        }
+    // Use requestAnimationFrame to ensure DOM is ready
+    requestAnimationFrame(() => {
+      const element = document.getElementById("menu");
+      if (element) {
+        const navHeight = 80; // Increased to account for navigation + padding
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - navHeight;
         
-        // Check if scroll is close to target position
-        const currentScroll = window.pageYOffset;
-        const isAtTarget = Math.abs(currentScroll - offsetPosition) < 50;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
         
-        if (isAtTarget) {
+        // Set hash after scroll completes
+        setTimeout(() => {
           window.location.hash = `menu-${tab}`;
-        } else {
-          // Check again in 100ms
-          setTimeout(() => setHashWhenReady(attempts + 1), 100);
-        }
-      };
-      
-      // Start checking after initial delay
-      setTimeout(() => setHashWhenReady(), 300);
-    }
+        }, 800);
+      }
+    });
   };
 
   const scrollToBarodaMenu = () => {
-    const element = document.getElementById("baroda-menu");
-    if (element) {
-      const navHeight = 64; // Height of fixed navigation (h-16 = 64px)
-      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-      const offsetPosition = elementPosition - navHeight;
-      
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
-    }
+    // Use requestAnimationFrame to ensure DOM is ready
+    requestAnimationFrame(() => {
+      const element = document.getElementById("baroda-menu");
+      if (element) {
+        const navHeight = 80; // Increased to account for navigation + padding
+        const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+        const offsetPosition = elementPosition - navHeight;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
+    });
   };
 
   return (
