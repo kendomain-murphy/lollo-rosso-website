@@ -1,5 +1,6 @@
 import barodaImage from "@assets/0K4A1897_1763893027474.jpg";
 import bodakdevImage from "@assets/LR_Bodakdev-2_1763893254032.jpg";
+import vijayCrossRoadImage from "@assets/LR_Navrangpura_1763894160041.jpg";
 
 export interface RestaurantLocation {
   id: string;
@@ -48,8 +49,8 @@ export const restaurantLocations: RestaurantLocation[] = [
     id: "vijay-cross-road",
     name: "Vijay Cross Road",
     description: "Exclusive vegetarian delights in a refined setting",
-    thumbnailImage: "", // Will be updated with actual image
-    reservationUrl: "", // TinyURL to be provided - must be from tinyurl.com or tiny.one
+    thumbnailImage: vijayCrossRoadImage,
+    reservationUrl: "https://tinyurl.com/626kz7f6",
   },
   {
     id: "adani-shantigram",
