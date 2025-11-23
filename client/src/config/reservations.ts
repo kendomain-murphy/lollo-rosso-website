@@ -1,3 +1,5 @@
+import barodaImage from "@assets/0K4A1897_1763893027474.jpg";
+
 export interface RestaurantLocation {
   id: string;
   name: string;
@@ -37,8 +39,8 @@ export const restaurantLocations: RestaurantLocation[] = [
     id: "baroda",
     name: "Baroda",
     description: "Authentic flavors in a vibrant setting",
-    thumbnailImage: "", // Will be updated with actual image
-    reservationUrl: "", // TinyURL to be provided - must be from tinyurl.com or tiny.one
+    thumbnailImage: barodaImage,
+    reservationUrl: "https://tinyurl.com/56pjkufs",
   },
   {
     id: "vijay-cross-road",
