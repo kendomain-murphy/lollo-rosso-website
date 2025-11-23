@@ -6,7 +6,6 @@ import { Calendar } from "lucide-react";
 export function ReservationSection() {
   const handleReservation = (locationId: string, reservationUrl: string) => {
     if (!reservationUrl) {
-      console.warn(`No reservation URL configured for ${locationId}`);
       return;
     }
     

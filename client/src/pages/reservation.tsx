@@ -89,14 +89,15 @@ export default function ReservationPage() {
           </div>
         </div>
 
-        <div className="flex-1 relative">
+        <div className="flex-1 relative bg-background">
           <iframe
             src={location.reservationUrl}
             title={`Reservations for ${location.name}`}
             className="w-full h-full absolute inset-0 border-0"
-            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+            sandbox="allow-scripts allow-forms"
             referrerPolicy="no-referrer"
             data-testid="iframe-reservation"
+            loading="lazy"
           />
         </div>
       </div>
