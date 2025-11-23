@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { restaurantLocations } from "@/config/reservations";
-import { Calendar, ConciergeBell } from "lucide-react";
+import { Calendar, Armchair } from "lucide-react";
 
 export function ReservationSection() {
   const handleReservation = (locationId: string, reservationUrl: string) => {
@@ -17,7 +17,7 @@ export function ReservationSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 flex items-center justify-center gap-3" data-testid="text-reservations-title">
-            Your Table Awaits <ConciergeBell className="w-8 h-8 md:w-10 md:h-10" /> Reserve Now
+            Your Table Awaits <Armchair className="w-8 h-8 md:w-10 md:h-10" /> Reserve Now
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-base" data-testid="text-reservations-subtitle">
             Choose your preferred location and book your unforgettable dining experience
