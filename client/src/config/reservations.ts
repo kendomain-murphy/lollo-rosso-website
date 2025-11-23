@@ -1,4 +1,5 @@
 import barodaImage from "@assets/0K4A1897_1763893027474.jpg";
+import bodakdevImage from "@assets/LR_Bodakdev-2_1763893254032.jpg";
 
 export interface RestaurantLocation {
   id: string;
@@ -32,8 +33,8 @@ export const restaurantLocations: RestaurantLocation[] = [
     id: "bodakdev-ahmedabad",
     name: "Bodakdev, Ahmedabad",
     description: "Experience Asian fusion in the heart of Ahmedabad",
-    thumbnailImage: "", // Will be updated with actual image
-    reservationUrl: "", // TinyURL to be provided - must be from tinyurl.com or tiny.one
+    thumbnailImage: bodakdevImage,
+    reservationUrl: "https://tinyurl.com/46fpmufr",
   },
   {
     id: "baroda",
