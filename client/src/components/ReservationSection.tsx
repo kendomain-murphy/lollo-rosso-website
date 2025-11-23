@@ -15,16 +15,16 @@ export function ReservationSection() {
   return (
     <section id="reservations" className="py-20 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" data-testid="text-reservations-title">
             Your Table Awaits — Reserve Now
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg" data-testid="text-reservations-subtitle">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-base" data-testid="text-reservations-subtitle">
             Choose your preferred location and book your unforgettable dining experience
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
           {restaurantLocations.map((location) => (
             <Card 
               key={location.id} 
@@ -41,26 +41,27 @@ export function ReservationSection() {
                   />
                 ) : (
                   <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-muted to-muted-foreground/10">
-                    <Calendar className="w-12 h-12 text-muted-foreground/40" />
+                    <Calendar className="w-6 h-6 text-muted-foreground/40" />
                   </div>
                 )}
               </div>
               
-              <div className="p-6">
-                <h3 className="font-serif text-xl font-bold mb-2" data-testid={`text-location-name-${location.id}`}>
+              <div className="p-3">
+                <h3 className="font-serif text-sm font-bold mb-1" data-testid={`text-location-name-${location.id}`}>
                   {location.name}
                 </h3>
-                <p className="text-muted-foreground text-sm mb-4" data-testid={`text-location-description-${location.id}`}>
+                <p className="text-muted-foreground text-xs mb-3" data-testid={`text-location-description-${location.id}`}>
                   {location.description}
                 </p>
                 
                 <Button
-                  className="w-full"
+                  size="sm"
+                  className="w-full text-xs"
                   onClick={() => handleReservation(location.id, location.reservationUrl)}
                   data-testid={`button-reserve-${location.id}`}
                   disabled={!location.reservationUrl}
                 >
-                  <Calendar className="w-4 h-4 mr-2" />
+                  <Calendar className="w-3 h-3 mr-1" />
                   Reserve Table
                 </Button>
               </div>
