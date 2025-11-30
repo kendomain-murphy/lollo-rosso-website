@@ -5,8 +5,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ChevronDown } from "lucide-react";
-import menuIcon from "@assets/menu_7615116_1764491622999.png";
+import { ChevronDown, BookOpen, Utensils } from "lucide-react";
 
 export function HeroSection() {
 
@@ -88,7 +87,10 @@ export function HeroSection() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button size="lg" data-testid="button-view-menu">
-                <img src={menuIcon} alt="Menu" className="mr-2 h-5 w-5" />
+                <span className="relative mr-2">
+                  <BookOpen className="h-5 w-5" />
+                  <Utensils className="absolute -top-1 -right-1 h-3 w-3" />
+                </span>
                 Lollo Rosso
                 <ChevronDown className="ml-2 h-4 w-4" />
               </Button>
