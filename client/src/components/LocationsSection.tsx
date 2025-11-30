@@ -4,6 +4,7 @@ import location1 from "@assets/LR_Bodakdev_Interior_1764489943807.jpg";
 import location2 from "@assets/0K4A1895_1761491772704.jpg";
 import location3 from "@assets/LR_SVP_Airport_1764490592610.jpg";
 import location4 from "@assets/stock_images/modern_restaurant_ex_de10af84.jpg";
+import location5 from "@assets/LR_Shantigram_Interior_1764491162000.jpg";
 
 const locations = [
   {
@@ -39,12 +40,22 @@ const locations = [
   {
     id: 4,
     name: "Vijay Cross Rd, Ahmedabad",
-    address: "Lollo Rosso, Goa",
+    address: "Lollo Rosso, Vijay Cross Road, Navrangpura, Ahmedabad, Gujarat",
     phone: "+91 79 4890 7329",
     hours: "Mon-Sun: 11:00 AM - 11:30 PM",
     image: location4,
-    mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+Goa",
-    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d492531.4398493049!2d73.61804988671875!3d15.348572900000005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfba106336b741%3A0xeaf887ff62f34092!2sGoa!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
+    mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+Vijay+Cross+Road+Ahmedabad",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.9088543461387!2d72.54964507489888!3d23.03082701508089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84f0b57fb0c7%3A0x9dcb81fd1e58c78e!2sVijay%20Cross%20Roads%2C%20Navrangpura%2C%20Ahmedabad!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
+  },
+  {
+    id: 5,
+    name: "Adani Shantigram",
+    address: "Lollo Rosso, Adani Shantigram Township, Near Vaishnodevi Circle, SG Highway, Ahmedabad, Gujarat",
+    phone: "+91 79 4897 7330",
+    hours: "Mon-Sun: 8:00 AM - 11:00 PM",
+    image: location5,
+    mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+Adani+Shantigram+Ahmedabad",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.6882438461387!2d72.44964507489888!3d23.10082701508089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b0d0d0d0d0d%3A0x0d0d0d0d0d0d0d0d!2sAdani%20Shantigram%2C%20Ahmedabad!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
   },
 ];
 
