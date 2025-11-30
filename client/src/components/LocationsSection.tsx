@@ -2,16 +2,16 @@ import { LocationCard } from "./LocationCard";
 
 import location1 from "@assets/LR_Bodakdev_Interior_1764489943807.jpg";
 import location2 from "@assets/0K4A1895_1761491772704.jpg";
-import location3 from "@assets/stock_images/modern_restaurant_ex_ae672835.jpg";
+import location3 from "@assets/D10F215F-B479-483E-A044-A3253FDB961B_1764490592610.JPG";
 import location4 from "@assets/stock_images/modern_restaurant_ex_de10af84.jpg";
 
 const locations = [
   {
     id: 1,
-    name: "Ahmedabad",
-    address: "Lollo Rosso, Ahmedabad, Gujarat",
-    phone: "+91 79 1234 5678",
-    hours: "Mon-Sun: 11:00 AM - 11:00 PM",
+    name: "Bodakdev, Ahmedabad",
+    address: "Lollo Rosso, One World Capital, Off. Rajpath Rangoli Rd, Bodakdev, Ahmedabad, Gujarat",
+    phone: "+91 79 4897 7329",
+    hours: "Mon-Sun: 11:30 AM - 11:30 PM",
     image: location1,
     mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+Ahmedabad",
     embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235013.7037779135!2d72.41493108359375!3d23.020181900000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
@@ -20,7 +20,7 @@ const locations = [
     id: 2,
     name: "Baroda",
     address: "Lollo Rosso, Baroda, Gujarat",
-    phone: "+91 265 1234 5678",
+    phone: "+91 87807 23783",
     hours: "Mon-Sun: 11:00 AM - 11:00 PM",
     image: location2,
     mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+Baroda",
@@ -30,7 +30,7 @@ const locations = [
     id: 3,
     name: "SVP Airport",
     address: "Lollo Rosso, Sardar Vallabhbhai Patel International Airport, Ahmedabad",
-    phone: "+91 79 8765 4321",
+    phone: "+91 92652 07250",
     hours: "Daily: 6:00 AM - 10:00 PM",
     image: location3,
     mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+SVP+Airport+Ahmedabad",
@@ -38,9 +38,9 @@ const locations = [
   },
   {
     id: 4,
-    name: "Goa",
+    name: "Vijay Cross Rd, Ahmedabad",
     address: "Lollo Rosso, Goa",
-    phone: "+91 832 1234 5678",
+    phone: "+91 79 4890 7329",
     hours: "Mon-Sun: 11:00 AM - 11:30 PM",
     image: location4,
     mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+Goa",
