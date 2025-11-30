@@ -1,6 +1,6 @@
 import { LocationCard } from "./LocationCard";
 
-import location1 from "@assets/stock_images/modern_restaurant_ex_f278a98c.jpg";
+import location1 from "@assets/LR_Bodakdev_Interior_1764489943807.jpg";
 import location2 from "@assets/0K4A1895_1761491772704.jpg";
 import location3 from "@assets/stock_images/modern_restaurant_ex_ae672835.jpg";
 import location4 from "@assets/stock_images/modern_restaurant_ex_de10af84.jpg";

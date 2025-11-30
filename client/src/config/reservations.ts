@@ -41,14 +41,14 @@ export const restaurantLocations: RestaurantLocation[] = [
   },
   {
     id: "baroda",
-    name: "Baroda",
+    name: "Alembic City, Baroda",
     description: "Authentic flavors in a vibrant setting with exciting brunch and beverage selections.",
     thumbnailImage: barodaImage,
     reservationUrl: "https://tinyurl.com/56pjkufs",
   },
   {
     id: "vijay-cross-road",
-    name: "Vijay Cross Road",
+    name: "Vijay Cross Road, Ahmedabad",
     description: "Exclusive vegetarian delights in a refined setting",
     thumbnailImage: vijayCrossRoadImage,
     reservationUrl: "https://tinyurl.com/626kz7f6",
@@ -56,7 +56,7 @@ export const restaurantLocations: RestaurantLocation[] = [
   {
     id: "adani-shantigram",
     name: "Adani Shantigram",
-    description: "Outdoor seating with delightful breakfast offerings",
+    description: "Outdoor seating with delightful breakfast and brunch offerings",
     thumbnailImage: adaniShantigramImage,
     reservationUrl: "https://tinyurl.com/8jy9urmb",
   },
