@@ -42,7 +42,7 @@ export const restaurantLocations: RestaurantLocation[] = [
   {
     id: "baroda",
     name: "Baroda",
-    description: "Authentic flavors in a vibrant setting",
+    description: "Authentic flavors in a vibrant setting with exciting brunch and beverage selections.",
     thumbnailImage: barodaImage,
     reservationUrl: "https://tinyurl.com/56pjkufs",
   },
