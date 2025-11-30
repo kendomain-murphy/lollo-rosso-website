@@ -1,5 +1,4 @@
 import { useParams } from "wouter";
-import { ReservationNavigation } from "@/components/ReservationNavigation";
 import { getLocationById, isValidReservationUrl } from "@/config/reservations";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -16,8 +15,7 @@ export default function ReservationPage() {
   if (!location) {
     return (
       <div className="min-h-screen">
-        <ReservationNavigation />
-        <div className="flex items-center justify-center min-h-[calc(100vh-80px)] px-6">
+        <div className="flex items-center justify-center min-h-screen px-6">
           <Card className="p-8 max-w-md text-center">
             <h1 className="font-serif text-2xl font-bold mb-4">Location Not Found</h1>
             <p className="text-muted-foreground mb-6">
@@ -38,8 +36,7 @@ export default function ReservationPage() {
   if (!location.reservationUrl || !isUrlValid) {
     return (
       <div className="min-h-screen">
-        <ReservationNavigation />
-        <div className="flex items-center justify-center min-h-[calc(100vh-80px)] px-6">
+        <div className="flex items-center justify-center min-h-screen px-6">
           <Card className="p-8 max-w-md text-center">
             <AlertTriangle className="w-12 h-12 mx-auto mb-4 text-muted-foreground" />
             <h1 className="font-serif text-2xl font-bold mb-4">{location.name}</h1>
@@ -62,8 +59,6 @@ export default function ReservationPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <ReservationNavigation />
-      
       <div className="flex-1 flex flex-col">
         <div className="bg-muted/30 border-b px-6 py-4">
           <div className="max-w-7xl mx-auto flex items-center justify-between">
