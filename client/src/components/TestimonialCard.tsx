@@ -16,14 +16,27 @@ export function TestimonialCard({
   platform = "Instagram"
 }: TestimonialCardProps) {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const playVideo = async () => {
+    if (videoRef.current && !isPlaying) {
+      setIsLoading(true);
+      try {
+        await videoRef.current.play();
+      } catch (error) {
+        console.error("Video play failed:", error);
+        setIsLoading(false);
+      }
+    }
+  };
 
   const handleVideoClick = () => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause();
       } else {
-        videoRef.current.play();
+        playVideo();
       }
     }
   };
@@ -41,9 +54,14 @@ export function TestimonialCard({
             poster={thumbnail}
             className="w-full h-full object-cover cursor-pointer"
             playsInline
-            preload="metadata"
-            onPlay={() => setIsPlaying(true)}
+            preload="auto"
+            onPlay={() => {
+              setIsPlaying(true);
+              setIsLoading(false);
+            }}
             onPause={() => setIsPlaying(false)}
+            onCanPlay={() => setIsLoading(false)}
+            onWaiting={() => setIsLoading(true)}
             onClick={handleVideoClick}
             data-testid={`video-${id}`}
           >
@@ -62,12 +80,17 @@ export function TestimonialCard({
             <button
               onClick={(e) => {
                 e.stopPropagation();
-                videoRef.current?.play();
+                playVideo();
               }}
-              className="bg-background/95 backdrop-blur-sm rounded-full p-6 hover-elevate active-elevate-2 transition-transform hover:scale-110 pointer-events-auto"
+              disabled={isLoading}
+              className="bg-background/95 backdrop-blur-sm rounded-full p-6 hover-elevate active-elevate-2 transition-transform hover:scale-110 pointer-events-auto disabled:opacity-70"
               data-testid={`button-play-${id}`}
             >
-              <Play className="h-12 w-12 text-primary fill-primary" />
+              {isLoading ? (
+                <div className="h-12 w-12 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+              ) : (
+                <Play className="h-12 w-12 text-primary fill-primary" />
+              )}
             </button>
           </div>
         )}
