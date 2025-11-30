@@ -55,8 +55,8 @@ const locations = [
     phone: "+91 79 4890 7329",
     hours: "Mon-Sun: 12:00 PM - 11:00 PM",
     image: location4,
-    mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+Vijay+Cross+Road+Ahmedabad",
-    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.9088543461387!2d72.54964507489888!3d23.03082701508089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84f0b57fb0c7%3A0x9dcb81fd1e58c78e!2sVijay%20Cross%20Roads%2C%20Navrangpura%2C%20Ahmedabad!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=23.043465719286846,72.54979879999999",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1000!2d72.54979879999999!3d23.043465719286846!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDAyJzM2LjUiTiA3MsKwMzInNTkuMyJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
   },
 ];
 
