@@ -20,12 +20,12 @@ const locations = [
   {
     id: 2,
     name: "Baroda",
-    address: "Lollo Rosso, Baroda, Gujarat",
+    address: "R3, Lollo Rosso Vadodara, Museum Square, Alembic City, BIDC Gorwa Estate, Gorwa, Vadodara, Gujarat 390003",
     phone: "+91 87807 23783",
     hours: "Mon-Sun: 11:00 AM - 11:00 PM",
     image: location2,
-    mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+Baroda",
-    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d118571.8291254677!2d73.10322308515625!3d22.30731710000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc4c0a08d5f83%3A0x5c07f5ddfae2d71!2sVadodara%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=Lollo+Rosso+Museum+Square+Alembic+City+Gorwa+Vadodara",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3691.5!2d73.1650!3d22.3250!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sMuseum+Square%2C+Alembic+City%2C+Gorwa%2C+Vadodara!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
   },
   {
     id: 3,
