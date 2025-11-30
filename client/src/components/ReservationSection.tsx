@@ -28,10 +28,10 @@ export function ReservationSection() {
           {restaurantLocations.map((location) => (
             <Card 
               key={location.id} 
-              className="overflow-hidden hover-elevate active-elevate-2 transition-all"
+              className="overflow-hidden hover-elevate active-elevate-2 transition-all h-full flex flex-col"
               data-testid={`card-location-${location.id}`}
             >
-              <div className="aspect-[4/3] bg-muted relative overflow-hidden">
+              <div className="aspect-[4/3] bg-muted relative overflow-hidden flex-shrink-0">
                 {location.thumbnailImage ? (
                   <img
                     src={location.thumbnailImage}
@@ -46,17 +46,17 @@ export function ReservationSection() {
                 )}
               </div>
               
-              <div className="p-3">
+              <div className="p-3 flex flex-col flex-1">
                 <h3 className="font-serif text-sm font-bold mb-1" data-testid={`text-location-name-${location.id}`}>
                   {location.name}
                 </h3>
-                <p className="text-muted-foreground text-xs mb-3" data-testid={`text-location-description-${location.id}`}>
+                <p className="text-muted-foreground text-xs flex-1" data-testid={`text-location-description-${location.id}`}>
                   {location.description}
                 </p>
                 
                 <Button
                   size="sm"
-                  className="w-full text-xs"
+                  className="w-full text-xs mt-3"
                   onClick={() => handleReservation(location.id, location.reservationUrl)}
                   data-testid={`button-reserve-${location.id}`}
                   disabled={!location.reservationUrl}
