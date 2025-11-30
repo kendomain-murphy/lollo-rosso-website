@@ -2,7 +2,7 @@ import { LocationCard } from "./LocationCard";
 
 import location1 from "@assets/LR_Bodakdev_Interior_1764489943807.jpg";
 import location2 from "@assets/0K4A1895_1761491772704.jpg";
-import location3 from "@assets/D10F215F-B479-483E-A044-A3253FDB961B_1764490592610.JPG";
+import location3 from "@assets/LR_SVP_Airport_1764490592610.jpg";
 import location4 from "@assets/stock_images/modern_restaurant_ex_de10af84.jpg";
 
 const locations = [
