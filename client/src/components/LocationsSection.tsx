@@ -14,8 +14,8 @@ const locations = [
     phone: "+91 79 4897 7329",
     hours: "Mon-Sun: 11:30 AM - 11:30 PM",
     image: location1,
-    mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+Ahmedabad",
-    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235013.7037779135!2d72.41493108359375!3d23.020181900000013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba5bd449%3A0x4fcedd11614f6516!2sAhmedabad%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
+    mapsUrl: "https://www.google.com/maps/search/?api=1&query=23.032901638474243,72.50328742389978",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d1000!2d72.50328742389978!3d23.032901638474243!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjPCsDAyJzAwLjAiTiA3MsKwMzAnMTIuMCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
   },
   {
     id: 2,
