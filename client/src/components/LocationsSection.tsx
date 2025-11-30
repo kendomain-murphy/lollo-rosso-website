@@ -37,6 +37,17 @@ const locations = [
     mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+SVP+Airport+Ahmedabad",
     embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.066743774816!2d72.62984007489855!3d23.07224791489968!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b3d5cb0f3a7%3A0x3d8f7c5c9ff0b0e6!2sSardar%20Vallabhbhai%20Patel%20International%20Airport!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
   },
+
+  {
+    id: 5,
+    name: "Adani Shantigram",
+    address: "Lollo Rosso, Lakeside, Adani Shantigram Township, Near Vaishnodevi Circle, SG Highway, Ahmedabad",
+    phone: "+91 79 4897 7330",
+    hours: "Mon-Sun: 9:30 AM - 11:00 PM",
+    image: location5,
+    mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+Adani+Shantigram+Ahmedabad",
+    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.6882438461387!2d72.44964507489888!3d23.10082701508089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b0d0d0d0d0d%3A0x0d0d0d0d0d0d0d0d!2sAdani%20Shantigram%2C%20Ahmedabad!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
+  },
   {
     id: 4,
     name: "Vijay Cross Rd, Ahmedabad",
@@ -46,16 +57,6 @@ const locations = [
     image: location4,
     mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+Vijay+Cross+Road+Ahmedabad",
     embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.9088543461387!2d72.54964507489888!3d23.03082701508089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84f0b57fb0c7%3A0x9dcb81fd1e58c78e!2sVijay%20Cross%20Roads%2C%20Navrangpura%2C%20Ahmedabad!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
-  },
-  {
-    id: 5,
-    name: "Adani Shantigram",
-    address: "Lollo Rosso, Adani Shantigram Township, Near Vaishnodevi Circle, SG Highway, Ahmedabad, Gujarat",
-    phone: "+91 79 4897 7330",
-    hours: "Mon-Sun: 8:00 AM - 11:00 PM",
-    image: location5,
-    mapsUrl: "https://www.google.com/maps/search/Lollo+Rosso+Adani+Shantigram+Ahmedabad",
-    embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3670.6882438461387!2d72.44964507489888!3d23.10082701508089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9b0d0d0d0d0d%3A0x0d0d0d0d0d0d0d0d!2sAdani%20Shantigram%2C%20Ahmedabad!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin",
   },
 ];
 
