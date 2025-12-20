@@ -7,6 +7,17 @@ import lolloccinoVideo from "@assets/Lolloccino_1766229590098.mp4";
 import airportVideo from "@assets/LR_Airport_1766229590105.mp4";
 import shantigramVideo from "@assets/LR_Shantigram_Opening_1766229590109.mp4";
 
+import gyroBowlDoodle from "@assets/Gyro_bowl_TWI_1766231096307.png";
+import dimsumsDoodle from "@assets/Korean_dimsums_TWI_1766231096317.png";
+import saladDoodle from "@assets/Zucchini_salad_TWI_1766231096320.png";
+
+const floatingDoodles = [
+  { src: gyroBowlDoodle, className: "left-0 top-[10%]", delay: "0s" },
+  { src: dimsumsDoodle, className: "left-[5%] bottom-[15%]", delay: "1.5s" },
+  { src: saladDoodle, className: "right-0 top-[20%]", delay: "0.8s" },
+  { src: gyroBowlDoodle, className: "right-[8%] bottom-[10%]", delay: "2s" },
+];
+
 const videos = [
   { id: 0, src: lolloccinoVideo, title: "Lolloccino" },
   { id: 1, src: airportVideo, title: "SVP Airport" },
@@ -73,7 +84,28 @@ export function AboutSection() {
 
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center mb-12 md:mb-16">
           <div className="relative">
-            <div className="relative flex items-center justify-center" style={{ minHeight: "420px" }}>
+            {floatingDoodles.map((doodle, index) => (
+              <img
+                key={index}
+                src={doodle.src}
+                alt=""
+                className={`absolute w-10 h-10 md:w-12 md:h-12 object-contain opacity-70 pointer-events-none hidden md:block ${doodle.className}`}
+                style={{
+                  animation: `floatDoodle 4s ease-in-out infinite`,
+                  animationDelay: doodle.delay,
+                  zIndex: 1,
+                }}
+              />
+            ))}
+            <style>{`
+              @keyframes floatDoodle {
+                0%, 100% { transform: translateY(0px) rotate(0deg); }
+                25% { transform: translateY(-8px) rotate(3deg); }
+                50% { transform: translateY(-4px) rotate(-2deg); }
+                75% { transform: translateY(-10px) rotate(2deg); }
+              }
+            `}</style>
+            <div className="relative flex items-center justify-center" style={{ minHeight: "420px", zIndex: 10 }}>
               {videos.map((video, index) => {
                 const isActive = index === activeIndex;
                 const isPrev = index === (activeIndex - 1 + videos.length) % videos.length;
