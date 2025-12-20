@@ -35,7 +35,7 @@ export function AboutSection() {
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" data-testid="text-about-title">
             About Lollo Rosso
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-about-subtitle">Bringing authentic Asian flavors to India with passion and precision</p>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-about-subtitle">Bringing authentic Global flavors to India with passion and precision</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
