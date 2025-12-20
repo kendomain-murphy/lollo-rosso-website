@@ -1,5 +1,5 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import { SiInstagram } from "react-icons/si";
+import { SiInstagram, SiFacebook } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
@@ -45,6 +45,20 @@ export function Footer() {
                   <SiInstagram className="h-5 w-5" />
                 </a>
               </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                asChild
+                data-testid="button-facebook"
+              >
+                <a
+                  href="https://www.facebook.com/lollorossoindia/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <SiFacebook className="h-5 w-5" />
+                </a>
+              </Button>
             </div>
           </div>
 
@@ -84,6 +98,13 @@ export function Footer() {
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   data-testid="link-footer-awards"
                 >Testimonials</button>
+              </li>
+              <li>
+                <button
+                  onClick={() => scrollToSection("reservations")}
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  data-testid="link-footer-reservations"
+                >Reserve Table</button>
               </li>
             </ul>
           </div>
