@@ -1,13 +1,46 @@
-import { Play, Award, Users, Heart } from "lucide-react";
+import { Award, Users, Heart, ChevronLeft, ChevronRight } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+
+import lolloccinoVideo from "@assets/Lolloccino_1766229590098.mp4";
+import airportVideo from "@assets/LR_Airport_1766229590105.mp4";
+import shantigramVideo from "@assets/LR_Shantigram_Opening_1766229590109.mp4";
+
+const videos = [
+  { id: 0, src: lolloccinoVideo, title: "Lolloccino" },
+  { id: 1, src: airportVideo, title: "SVP Airport" },
+  { id: 2, src: shantigramVideo, title: "Shantigram Opening" },
+];
 
 export function AboutSection() {
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
-  const handlePlayVideo = () => {
-    setIsVideoPlaying(true);
-    console.log("Playing about us video");
+  useEffect(() => {
+    const currentVideo = videoRefs.current[activeIndex];
+    if (currentVideo) {
+      currentVideo.currentTime = 0;
+      currentVideo.play().catch(() => {});
+    }
+    videoRefs.current.forEach((video, index) => {
+      if (video && index !== activeIndex) {
+        video.pause();
+        video.currentTime = 0;
+      }
+    });
+  }, [activeIndex]);
+
+  const handleVideoEnd = () => {
+    setActiveIndex((prev) => (prev + 1) % videos.length);
+  };
+
+  const goToNext = () => {
+    setActiveIndex((prev) => (prev + 1) % videos.length);
+  };
+
+  const goToPrev = () => {
+    setActiveIndex((prev) => (prev - 1 + videos.length) % videos.length);
   };
 
   const features = [
@@ -39,40 +72,96 @@ export function AboutSection() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-          <div className="relative aspect-video rounded-2xl overflow-hidden bg-card">
-            {!isVideoPlaying ? (
-              <div className="relative w-full h-full">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                  <button
-                    onClick={handlePlayVideo}
-                    className="group"
-                    data-testid="button-play-about-video"
+          <div className="relative">
+            <div className="relative flex items-center justify-center" style={{ minHeight: "320px" }}>
+              {videos.map((video, index) => {
+                const isActive = index === activeIndex;
+                const isPrev = index === (activeIndex - 1 + videos.length) % videos.length;
+                const isNext = index === (activeIndex + 1) % videos.length;
+                
+                let transform = "translateX(100%) scale(0.7)";
+                let zIndex = 0;
+                let opacity = 0;
+                
+                if (isActive) {
+                  transform = "translateX(0) scale(1)";
+                  zIndex = 30;
+                  opacity = 1;
+                } else if (isPrev) {
+                  transform = "translateX(-30%) scale(0.75)";
+                  zIndex = 10;
+                  opacity = 0.5;
+                } else if (isNext) {
+                  transform = "translateX(30%) scale(0.75)";
+                  zIndex = 10;
+                  opacity = 0.5;
+                }
+
+                return (
+                  <div
+                    key={video.id}
+                    className="absolute w-[85%] cursor-pointer transition-all duration-500 ease-out"
+                    style={{
+                      transform,
+                      zIndex,
+                      opacity,
+                    }}
+                    onClick={() => !isActive && setActiveIndex(index)}
+                    data-testid={`video-card-${index}`}
                   >
-                    <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center group-hover:scale-110 transition-transform shadow-xl">
-                      <Play className="h-10 w-10 text-primary-foreground fill-current ml-1" />
+                    <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
+                      <video
+                        ref={(el) => { videoRefs.current[index] = el; }}
+                        src={video.src}
+                        className="w-full h-full object-cover"
+                        muted
+                        playsInline
+                        onEnded={handleVideoEnd}
+                        data-testid={`video-player-${index}`}
+                      />
+                      {isActive && (
+                        <div className="absolute bottom-3 left-3 right-3">
+                          <div className="bg-background/80 backdrop-blur-sm rounded-lg px-3 py-2">
+                            <p className="text-sm font-semibold">{video.title}</p>
+                          </div>
+                        </div>
+                      )}
                     </div>
-                  </button>
-                </div>
-                <div className="absolute bottom-4 left-4 right-4">
-                  <div className="bg-background/80 backdrop-blur-sm rounded-lg p-4">
-                    <p className="text-sm font-semibold">Watch Our Story</p>
-                    <p className="text-xs text-muted-foreground">Discover the journey of Lollo Rosso</p>
                   </div>
-                </div>
+                );
+              })}
+            </div>
+
+            <div className="flex justify-center items-center gap-4 mt-6">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={goToPrev}
+                data-testid="button-video-prev"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </Button>
+              <div className="flex gap-2">
+                {videos.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveIndex(index)}
+                    className={`w-2 h-2 rounded-full transition-all ${
+                      index === activeIndex ? "bg-primary w-6" : "bg-muted-foreground/30"
+                    }`}
+                    data-testid={`dot-indicator-${index}`}
+                  />
+                ))}
               </div>
-            ) : (
-              <div className="w-full h-full flex items-center justify-center bg-muted">
-                <div className="text-center p-8">
-                  <Play className="h-16 w-16 mx-auto mb-4 text-primary" />
-                  <p className="text-muted-foreground" data-testid="text-video-placeholder">
-                    Video player would appear here
-                  </p>
-                  <p className="text-sm text-muted-foreground mt-2">
-                    Upload your restaurant video to showcase your story
-                  </p>
-                </div>
-              </div>
-            )}
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={goToNext}
+                data-testid="button-video-next"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </Button>
+            </div>
           </div>
 
           <div className="space-y-6">
