@@ -23,7 +23,7 @@ const floatingDoodles = [
 const videos = [
   { id: 0, src: lolloccinoVideo, title: "Lolloccino" },
   { id: 1, src: airportVideo, title: "SVP Airport" },
-  { id: 2, src: shantigramVideo, title: "Shantigram Opening" },
+  { id: 2, src: shantigramVideo, title: "Our Dream Team" },
 ];
 
 export function AboutSection() {
