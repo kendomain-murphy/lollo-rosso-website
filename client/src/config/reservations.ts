@@ -37,7 +37,7 @@ export const restaurantLocations: RestaurantLocation[] = [
     name: "Bodakdev, Ahmedabad",
     description: "Experience Asian fusion in the heart of Ahmedabad",
     thumbnailImage: bodakdevImage,
-    reservationUrl: "https://reservations.petpooja.com/form/d368eb99600297c3f7b55267a664b2f7d5428e49741b19c969e86c53c010bae0bb3e84384c4327823fe14add1d238c9a5c3ac983f315ee9b8c8eb8dd9340e05e7b8764e3f6d41705fa993dacda05581ea1cdf7326cc11af9d21aca125ea27d5f",
+    reservationUrl: "https://tinyurl.com/46fpmufr",
   },
   {
     id: "baroda",

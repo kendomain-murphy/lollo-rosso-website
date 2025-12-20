@@ -26,7 +26,7 @@ export function ReservationNavigation() {
             >
               <a href="/">
                 <ArrowLeft className="w-4 h-4 mr-2" />
-                Back to Main Website
+                Back to Home
               </a>
             </Button>
           </div>
