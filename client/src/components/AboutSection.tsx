@@ -77,9 +77,7 @@ export function AboutSection() {
 
           <div className="space-y-6">
             <div>
-              <h3 className="font-serif text-3xl font-bold mb-4" data-testid="text-about-heading">
-                A Culinary Journey Through Asia
-              </h3>
+              <h3 className="font-serif font-bold mb-4 text-[28px]" data-testid="text-about-heading">Perfecting the Art of Fusion — A Journey Through World Flavors.</h3>
               <div className="space-y-4 text-muted-foreground">
                 <p data-testid="text-about-description-1">Founded with a passion for authentic Asian cuisine, Lollo Rosso has become India's premier destination for exquisite bowl meals, sushi, and dimsums. Our journey began with a simple vision: to bring the diverse flavors of Asia to one exceptional dining experience.</p>
                 <p data-testid="text-about-description-2">
