@@ -64,16 +64,16 @@ export function AboutSection() {
   return (
     <section id="about" className="py-20 px-6">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4" data-testid="text-about-title">
+        <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 md:mb-6" data-testid="text-about-title">
             About Lollo Rosso
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-about-subtitle">Bringing authentic Global flavors to India with passion and precision</p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center mb-12 md:mb-16">
           <div className="relative">
-            <div className="relative flex items-center justify-center" style={{ minHeight: "320px" }}>
+            <div className="relative flex items-center justify-center" style={{ minHeight: "480px" }}>
               {videos.map((video, index) => {
                 const isActive = index === activeIndex;
                 const isPrev = index === (activeIndex - 1 + videos.length) % videos.length;
@@ -100,7 +100,7 @@ export function AboutSection() {
                 return (
                   <div
                     key={video.id}
-                    className="absolute w-[85%] cursor-pointer transition-all duration-500 ease-out"
+                    className="absolute w-[55%] max-w-[220px] cursor-pointer transition-all duration-500 ease-out"
                     style={{
                       transform,
                       zIndex,
@@ -109,7 +109,7 @@ export function AboutSection() {
                     onClick={() => !isActive && setActiveIndex(index)}
                     data-testid={`video-card-${index}`}
                   >
-                    <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-black">
+                    <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-black" style={{ aspectRatio: "9/16" }}>
                       <video
                         ref={(el) => { videoRefs.current[index] = el; }}
                         src={video.src}
@@ -164,10 +164,10 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6 mt-8 lg:mt-0">
             <div>
-              <h3 className="font-serif font-bold mb-4 text-[28px]" data-testid="text-about-heading">Perfecting the Art of Fusion — A Journey Through World Flavors.</h3>
-              <div className="space-y-4 text-muted-foreground">
+              <h3 className="font-serif font-bold mb-4 md:mb-6 text-2xl md:text-[28px]" data-testid="text-about-heading">Perfecting the Art of Fusion — A Journey Through World Flavors.</h3>
+              <div className="space-y-4 md:space-y-5 text-muted-foreground">
                 <p data-testid="text-about-description-1">Founded with a passion for authentic Asian cuisine, Lollo Rosso has become India's premier destination for exquisite bowl meals, sushi, and dimsums. Our journey began with a simple vision: to bring the diverse flavors of Asia to one exceptional dining experience.</p>
                 <p data-testid="text-about-description-2">
                   Each dish is crafted with meticulous attention to detail, using traditional techniques 
@@ -180,7 +180,7 @@ export function AboutSection() {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             return (
