@@ -11,8 +11,10 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { ChevronDown, BookOpen, Utensils } from "lucide-react";
+import { useState } from "react";
 
 export function HeroSection() {
+  const [tooltipOpen, setTooltipOpen] = useState(false);
 
   const scrollToSection = (id: string) => {
     // Use requestAnimationFrame to ensure DOM is ready
@@ -127,16 +129,17 @@ export function HeroSection() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <Tooltip>
+          <Tooltip open={tooltipOpen} onOpenChange={setTooltipOpen}>
             <TooltipTrigger asChild>
               <Button
                 size="lg"
                 variant="outline"
                 className="bg-background/80 backdrop-blur-sm border-white/40 text-foreground hover:bg-background"
                 data-testid="button-find-location"
+                onClick={() => setTooltipOpen(true)}
               >Explore Lolloccino</Button>
             </TooltipTrigger>
-            <TooltipContent side="top" className="max-w-xs text-center">
+            <TooltipContent side="top" className="max-w-[200px] text-center text-xs sm:text-sm">
               <p>Stay tuned, something special is simmering!</p>
             </TooltipContent>
           </Tooltip>
