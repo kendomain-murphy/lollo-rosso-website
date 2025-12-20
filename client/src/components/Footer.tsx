@@ -52,7 +52,7 @@ export function Footer() {
                 data-testid="button-facebook"
               >
                 <a
-                  href="https://www.facebook.com/lollorossoindia/"
+                  href="https://www.facebook.com/lollorossoahmedabad/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
