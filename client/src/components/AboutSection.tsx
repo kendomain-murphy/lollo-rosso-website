@@ -73,7 +73,7 @@ export function AboutSection() {
 
         <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center mb-12 md:mb-16">
           <div className="relative">
-            <div className="relative flex items-center justify-center" style={{ minHeight: "480px" }}>
+            <div className="relative flex items-center justify-center" style={{ minHeight: "420px" }}>
               {videos.map((video, index) => {
                 const isActive = index === activeIndex;
                 const isPrev = index === (activeIndex - 1 + videos.length) % videos.length;
@@ -100,7 +100,7 @@ export function AboutSection() {
                 return (
                   <div
                     key={video.id}
-                    className="absolute w-[55%] max-w-[220px] cursor-pointer transition-all duration-500 ease-out"
+                    className="absolute w-[50%] sm:w-[45%] md:w-[55%] lg:w-[55%] max-w-[260px] cursor-pointer transition-all duration-500 ease-out"
                     style={{
                       transform,
                       zIndex,
@@ -164,7 +164,7 @@ export function AboutSection() {
             </div>
           </div>
 
-          <div className="space-y-6 mt-8 lg:mt-0">
+          <div className="space-y-6 mt-4 lg:mt-0">
             <div>
               <h3 className="font-serif font-bold mb-4 md:mb-6 text-2xl md:text-[28px]" data-testid="text-about-heading">Perfecting the Art of Fusion — A Journey Through World Flavors.</h3>
               <div className="space-y-4 md:space-y-5 text-muted-foreground">
