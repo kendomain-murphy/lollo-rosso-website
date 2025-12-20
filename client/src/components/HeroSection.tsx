@@ -5,6 +5,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { ChevronDown, BookOpen, Utensils } from "lucide-react";
 
 export function HeroSection() {
@@ -122,13 +127,19 @@ export function HeroSection() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <Button
-            size="lg"
-            variant="outline"
-            className="bg-background/80 backdrop-blur-sm border-white/40 text-foreground hover:bg-background"
-            onClick={() => scrollToSection("locations")}
-            data-testid="button-find-location"
-          >Explore Lolloccino</Button>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Button
+                size="lg"
+                variant="outline"
+                className="bg-background/80 backdrop-blur-sm border-white/40 text-foreground hover:bg-background"
+                data-testid="button-find-location"
+              >Explore Lolloccino</Button>
+            </TooltipTrigger>
+            <TooltipContent side="top" className="max-w-xs text-center">
+              <p>Stay tuned, something special is simmering!</p>
+            </TooltipContent>
+          </Tooltip>
         </div>
       </div>
     </section>
