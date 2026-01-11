@@ -203,7 +203,7 @@ export function AboutSection() {
               })}
             </div>
 
-            <div className="flex justify-center items-center gap-2 mt-6">
+            <div className="flex justify-center items-center gap-2 mt-2">
               {videos.map((_, index) => (
                 <button
                   key={index}
