@@ -202,22 +202,9 @@ export function AboutSection() {
                 );
               })}
             </div>
-
-            <div className="flex justify-center items-center gap-2 mt-2">
-              {videos.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === activeIndex ? "bg-primary w-6" : "bg-muted-foreground/30"
-                  }`}
-                  data-testid={`dot-indicator-${index}`}
-                />
-              ))}
-            </div>
           </div>
 
-          <div className="space-y-6 mt-4 lg:mt-0">
+          <div className="space-y-6 mt-2 lg:mt-0">
             <div>
               <h3 className="font-serif font-bold mb-4 md:mb-6 text-2xl md:text-[28px]" data-testid="text-about-heading">Perfecting the Art of Fusion — A Journey Through World Flavors</h3>
               <div className="space-y-4 md:space-y-5 text-muted-foreground">
