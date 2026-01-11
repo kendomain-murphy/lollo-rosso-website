@@ -41,6 +41,12 @@ const testimonials = [
     thumbnail: "/videos/testimonials/posters/morning-afternoon-night.jpg",
     platform: "Instagram",
   },
+  {
+    id: 6,
+    videoUrl: "/videos/testimonials/sports-day-event.mp4",
+    thumbnail: "/videos/testimonials/posters/sports-day-event.jpg",
+    platform: "Instagram",
+  },
 ];
 
 export function TestimonialsSection() {
