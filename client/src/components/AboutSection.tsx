@@ -1,7 +1,6 @@
-import { Award, Users, Heart, ChevronLeft, ChevronRight } from "lucide-react";
+import { Award, Users, Heart } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { useState, useRef, useEffect } from "react";
-import { Button } from "@/components/ui/button";
 
 import lolloccinoVideo from "@assets/Lolloccino_1766229590098.mp4";
 import airportVideo from "@assets/LR_Airport_1766229590105.mp4";
@@ -29,6 +28,8 @@ const videos = [
 export function AboutSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
   useEffect(() => {
     const currentVideo = videoRefs.current[activeIndex];
@@ -54,6 +55,30 @@ export function AboutSection() {
 
   const goToPrev = () => {
     setActiveIndex((prev) => (prev - 1 + videos.length) % videos.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const diff = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 50;
+    
+    if (Math.abs(diff) > minSwipeDistance) {
+      if (diff > 0) {
+        goToNext();
+      } else {
+        goToPrev();
+      }
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
   };
 
   const features = [
@@ -113,7 +138,13 @@ export function AboutSection() {
                 75% { transform: translateX(10px) translateY(3px); }
               }
             `}</style>
-            <div className="relative flex items-center justify-center" style={{ minHeight: "420px", zIndex: 10 }}>
+            <div 
+              className="relative flex items-center justify-center" 
+              style={{ minHeight: "420px", zIndex: 10 }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               {videos.map((video, index) => {
                 const isActive = index === activeIndex;
                 const isPrev = index === (activeIndex - 1 + videos.length) % videos.length;
@@ -172,35 +203,17 @@ export function AboutSection() {
               })}
             </div>
 
-            <div className="flex justify-center items-center gap-4 mt-6">
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={goToPrev}
-                data-testid="button-video-prev"
-              >
-                <ChevronLeft className="h-5 w-5" />
-              </Button>
-              <div className="flex gap-2">
-                {videos.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveIndex(index)}
-                    className={`w-2 h-2 rounded-full transition-all ${
-                      index === activeIndex ? "bg-primary w-6" : "bg-muted-foreground/30"
-                    }`}
-                    data-testid={`dot-indicator-${index}`}
-                  />
-                ))}
-              </div>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={goToNext}
-                data-testid="button-video-next"
-              >
-                <ChevronRight className="h-5 w-5" />
-              </Button>
+            <div className="flex justify-center items-center gap-2 mt-6">
+              {videos.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActiveIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index === activeIndex ? "bg-primary w-6" : "bg-muted-foreground/30"
+                  }`}
+                  data-testid={`dot-indicator-${index}`}
+                />
+              ))}
             </div>
           </div>
 
