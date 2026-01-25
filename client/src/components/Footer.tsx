@@ -126,7 +126,7 @@ export function Footer() {
                   href="mailto:hello@lollorosso.com"
                   className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   data-testid="link-footer-email"
-                >info@lollorosso.com</a>
+                >info@lollorosso.in</a>
               </li>
               <li className="flex gap-2">
                 <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
