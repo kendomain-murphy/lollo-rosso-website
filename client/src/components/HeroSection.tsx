@@ -122,7 +122,7 @@ export function HeroSection() {
                 SVP Airport
               </DropdownMenuItem>
               <DropdownMenuItem
-                onClick={() => scrollToSection("menu")}
+                onClick={() => window.open("https://www.instagram.com/lollorossogoa/reels/", "_blank")}
                 data-testid="menu-location-goa"
               >
                 Goa
