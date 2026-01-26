@@ -228,34 +228,36 @@ export function BarodaMenuSection() {
         </Tabs>
       </div>
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-full max-h-full w-screen h-screen m-0 p-0 bg-black/95">
+        <DialogContent className="max-w-[95vw] max-h-[95vh] h-[95vh] p-0 gap-0 flex flex-col overflow-hidden" data-testid="dialog-baroda-menu-viewer">
           <DialogHeader className="sr-only">
             <DialogTitle>Menu Viewer</DialogTitle>
-            <DialogDescription>Swipe to navigate pages, pinch to zoom</DialogDescription>
+            <DialogDescription>View and zoom the menu. Pinch to zoom, swipe to navigate between pages.</DialogDescription>
           </DialogHeader>
           
-          <button
-            onClick={() => setIsModalOpen(false)}
-            className="absolute top-4 right-4 z-50 w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white"
-            data-testid="button-modal-close"
-          >
-            <X className="h-5 w-5 text-foreground" />
-          </button>
+          <div className="absolute top-2 right-2 z-50">
+            <button
+              onClick={() => setIsModalOpen(false)}
+              className="w-10 h-10 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-xl hover:bg-white hover:scale-110 transition-all"
+              data-testid="button-modal-close"
+            >
+              <X className="h-5 w-5 text-foreground" />
+            </button>
+          </div>
 
-          <div className="h-full flex flex-col">
+          <div className="flex-1 relative overflow-hidden">
             <Swiper
               effect={'flip'}
               grabCursor={true}
               zoom={true}
               modules={[EffectFlip, Navigation, Pagination, Zoom]}
-              className="menu-modal-swiper flex-1"
+              className="h-full w-full"
+              initialSlide={modalPage}
               onSwiper={(swiper) => {
                 modalSwiperRef.current = swiper;
               }}
               onSlideChange={(swiper) => {
                 setModalPage(swiper.activeIndex);
               }}
-              initialSlide={modalPage}
               flipEffect={{
                 slideShadows: true,
                 limitRotation: true,
@@ -277,7 +279,7 @@ export function BarodaMenuSection() {
 
             <button
               onClick={() => modalSwiperRef.current?.slidePrev()}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white"
+              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-40 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all"
               data-testid="button-modal-prev"
             >
               <ChevronLeft className="h-6 w-6 md:h-7 md:w-7 text-foreground" />
@@ -285,7 +287,7 @@ export function BarodaMenuSection() {
 
             <button
               onClick={() => modalSwiperRef.current?.slideNext()}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-40 w-12 h-12 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white"
+              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-40 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white/95 backdrop-blur-sm flex items-center justify-center border-2 shadow-2xl hover:bg-white hover:scale-110 transition-all"
               data-testid="button-modal-next"
             >
               <ChevronRight className="h-6 w-6 md:h-7 md:w-7 text-foreground" />
