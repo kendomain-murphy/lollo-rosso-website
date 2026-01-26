@@ -27,9 +27,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
             <img src={logo} alt="Lollo Rosso" className="h-16 w-auto mb-4" data-testid="img-footer-logo" />
-            <p className="text-sm text-muted-foreground mb-4">
-              Experience the finest Asian fusion cuisine with bowl meals, sushi, and dimsums.
-            </p>
+            <p className="text-sm text-muted-foreground mb-4">Experience a world of flavors featuring our signature Asian specialties, from handcrafted sushi and dim sum to curated global bowl meals.</p>
             <div className="flex gap-2">
               <Button
                 variant="outline"
