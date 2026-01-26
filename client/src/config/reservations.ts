@@ -1,4 +1,4 @@
-import barodaImage from "@assets/0K4A1897_1763893027474.jpg";
+import barodaImage from "@assets/Img-Baroda-Rsrv-table_1769443457816.webp";
 import bodakdevImage from "@assets/LR_Bodakdev-2_1763893254032.jpg";
 import vijayCrossRoadImage from "@assets/LR_Navrangpura_1763894160041.jpg";
 import adaniShantigramImage from "@assets/DSCF1135_1763894263112.jpeg";
