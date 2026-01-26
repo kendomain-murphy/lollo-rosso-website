@@ -1,7 +1,7 @@
 import { LocationCard } from "./LocationCard";
 
 import location1 from "@assets/LR_Bodakdev_Interior_1764489943807.jpg";
-import location2 from "@assets/0K4A1895_1761491772704.jpg";
+import location2 from "@assets/Img_Baroda_Visit-us_1769443953848.webp";
 import location3 from "@assets/LR_SVP_Airport_1764490592610.jpg";
 import location4 from "@assets/LR_Navrangpura_1764492819834.jpg";
 import location5 from "@assets/LR_Shantigram_Interior_1764491162000.jpg";
