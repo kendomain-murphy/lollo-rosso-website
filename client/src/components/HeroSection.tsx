@@ -129,14 +129,14 @@ export function HeroSection() {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <Tooltip open={tooltipOpen} onOpenChange={setTooltipOpen}>
+          <Tooltip open={tooltipOpen} onOpenChange={(open) => !open && setTooltipOpen(false)}>
             <TooltipTrigger asChild>
               <Button
                 size="lg"
                 variant="outline"
                 className="bg-background/80 backdrop-blur-sm border-white/40 text-foreground hover:bg-background"
                 data-testid="button-find-location"
-                onClick={() => setTooltipOpen(true)}
+                onClick={() => setTooltipOpen(!tooltipOpen)}
               >Explore Lolloccino</Button>
             </TooltipTrigger>
             <TooltipContent side="top" className="max-w-[200px] text-center text-xs sm:text-sm">
