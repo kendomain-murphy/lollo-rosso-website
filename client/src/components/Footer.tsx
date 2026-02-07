@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, MessageSquare } from "lucide-react";
 import { SiInstagram, SiFacebook, SiWhatsapp } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -118,6 +118,15 @@ export function Footer() {
                   data-testid="link-footer-reservations"
                 >Reserve Table</button>
               </li>
+              <li>
+                <a
+                  href="/feedback"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-muted-foreground hover:text-primary transition-colors"
+                  data-testid="link-footer-feedback"
+                >Share Feedback</a>
+              </li>
             </ul>
           </div>
 
@@ -143,6 +152,19 @@ export function Footer() {
               <li className="flex gap-2">
                 <MapPin className="h-5 w-5 text-primary flex-shrink-0" />
                 <span className="text-sm text-muted-foreground">Ahmedabad, India</span>
+              </li>
+              <li className="pt-2">
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  data-testid="button-feedback"
+                >
+                  <a href="/feedback" target="_blank" rel="noopener noreferrer">
+                    <MessageSquare className="h-4 w-4 mr-2" />
+                    Share Feedback
+                  </a>
+                </Button>
               </li>
             </ul>
           </div>
