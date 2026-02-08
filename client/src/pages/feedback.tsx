@@ -13,7 +13,6 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Star, Send, CheckCircle } from "lucide-react";
-import { apiRequest } from "@/lib/queryClient";
 import logo from "@assets/LR_NewLogo_TP_ext_1761393901272.png";
 
 const outlets = [
@@ -90,6 +89,7 @@ export default function FeedbackPage() {
   const [comments, setComments] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState("");
   const [errors, setErrors] = useState<{ name?: string; mobile?: string }>({});
 
   const validate = () => {
@@ -109,23 +109,36 @@ export default function FeedbackPage() {
     if (!validate()) return;
 
     setIsSubmitting(true);
+    setSubmitError("");
     try {
-      await apiRequest("POST", "/api/feedback", {
-        name: name.trim(),
-        mobile: mobile.trim(),
-        email: email.trim() || undefined,
-        outlet: outlet || undefined,
-        overallRating: overallRating || undefined,
-        foodRating: foodRating || undefined,
-        serviceRating: serviceRating || undefined,
-        ambianceRating: ambianceRating || undefined,
-        visitDate: visitDate || undefined,
-        diningType: diningType || undefined,
-        comments: comments.trim() || undefined,
+      const formData = new URLSearchParams();
+      formData.append("form-name", "feedback");
+      formData.append("name", name.trim());
+      formData.append("mobile", mobile.trim());
+      formData.append("email", email.trim());
+      formData.append("outlet", outlet);
+      formData.append("overallRating", overallRating ? String(overallRating) : "");
+      formData.append("foodRating", foodRating ? String(foodRating) : "");
+      formData.append("serviceRating", serviceRating ? String(serviceRating) : "");
+      formData.append("ambianceRating", ambianceRating ? String(ambianceRating) : "");
+      formData.append("visitDate", visitDate);
+      formData.append("diningType", diningType);
+      formData.append("comments", comments.trim());
+
+      const res = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: formData.toString(),
       });
-      setIsSubmitted(true);
+
+      if (res.ok) {
+        setIsSubmitted(true);
+      } else {
+        setSubmitError("Something went wrong. Please try again.");
+      }
     } catch (err) {
       console.error("Failed to submit feedback:", err);
+      setSubmitError("Network error. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -306,6 +319,12 @@ export default function FeedbackPage() {
                   data-testid="textarea-feedback-comments"
                 />
               </div>
+
+              {submitError && (
+                <p className="text-sm text-destructive text-center" data-testid="text-submit-error">
+                  {submitError}
+                </p>
+              )}
 
               <Button
                 type="submit"
