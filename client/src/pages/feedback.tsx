@@ -113,6 +113,7 @@ export default function FeedbackPage() {
     try {
       const formData = new URLSearchParams();
       formData.append("form-name", "feedback");
+      formData.append("bot-field", "");
       formData.append("name", name.trim());
       formData.append("mobile", mobile.trim());
       formData.append("email", email.trim());
@@ -125,7 +126,7 @@ export default function FeedbackPage() {
       formData.append("diningType", diningType);
       formData.append("comments", comments.trim());
 
-      const res = await fetch("/", {
+      const res = await fetch("/feedback", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: formData.toString(),
@@ -134,6 +135,7 @@ export default function FeedbackPage() {
       if (res.ok) {
         setIsSubmitted(true);
       } else {
+        console.error("Form submission failed:", res.status, res.statusText);
         setSubmitError("Something went wrong. Please try again.");
       }
     } catch (err) {
