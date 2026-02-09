@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { ReservationNavigation } from "@/components/ReservationNavigation";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -73,17 +73,21 @@ function StarRating({
   onChange,
   label,
   testIdPrefix,
+  required,
 }: {
   value: number;
   onChange: (val: number) => void;
   label: string;
   testIdPrefix: string;
+  required?: boolean;
 }) {
   const [hoverValue, setHoverValue] = useState(0);
 
   return (
     <div className="space-y-2">
-      <Label className="text-sm font-medium">{label}</Label>
+      <Label className="text-sm font-medium">
+        {label} {required && <span className="text-destructive">*</span>}
+      </Label>
       <div className="flex gap-1" data-testid={`rating-${testIdPrefix}`}>
         {[1, 2, 3, 4, 5].map((star) => (
           <button
@@ -129,17 +133,39 @@ export default function FeedbackPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submitError, setSubmitError] = useState("");
-  const [errors, setErrors] = useState<{ name?: string; mobile?: string }>({});
+  const [errors, setErrors] = useState<{ name?: string; mobile?: string; overallRating?: string }>({});
+
+  const nameRef = useRef<HTMLInputElement>(null);
+  const mobileRef = useRef<HTMLInputElement>(null);
+  const overallRatingRef = useRef<HTMLDivElement>(null);
 
   const validate = () => {
-    const newErrors: { name?: string; mobile?: string } = {};
+    const newErrors: { name?: string; mobile?: string; overallRating?: string } = {};
     if (!name.trim()) newErrors.name = "Name is required";
     if (!mobile.trim()) {
       newErrors.mobile = "Mobile number is required";
     } else if (mobile.replace(/\D/g, "").length < 10) {
       newErrors.mobile = "Please enter a valid mobile number";
     }
+    if (overallRating === 0) newErrors.overallRating = "Please rate your overall experience";
     setErrors(newErrors);
+
+    if (Object.keys(newErrors).length > 0) {
+      const firstError = Object.keys(newErrors)[0];
+      const refMap: Record<string, React.RefObject<HTMLElement | null>> = {
+        name: nameRef,
+        mobile: mobileRef,
+        overallRating: overallRatingRef,
+      };
+      const ref = refMap[firstError];
+      if (ref?.current) {
+        ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
+        if (firstError !== "overallRating" && "focus" in ref.current) {
+          setTimeout(() => (ref.current as HTMLInputElement)?.focus(), 400);
+        }
+      }
+    }
+
     return Object.keys(newErrors).length === 0;
   };
 
@@ -241,6 +267,7 @@ export default function FeedbackPage() {
                   </Label>
                   <Input
                     id="name"
+                    ref={nameRef}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Your full name"
@@ -256,6 +283,7 @@ export default function FeedbackPage() {
                   </Label>
                   <Input
                     id="mobile"
+                    ref={mobileRef}
                     value={mobile}
                     onChange={(e) => setMobile(e.target.value)}
                     placeholder="+91 98765 43210"
@@ -330,12 +358,18 @@ export default function FeedbackPage() {
                   Rate Your Experience
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <StarRating
-                    value={overallRating}
-                    onChange={setOverallRating}
-                    label="Overall Experience"
-                    testIdPrefix="overall"
-                  />
+                  <div ref={overallRatingRef}>
+                    <StarRating
+                      value={overallRating}
+                      onChange={setOverallRating}
+                      label="Overall Experience"
+                      testIdPrefix="overall"
+                      required
+                    />
+                    {errors.overallRating && (
+                      <p className="text-sm text-destructive mt-1" data-testid="error-overall-rating">{errors.overallRating}</p>
+                    )}
+                  </div>
                   <StarRating
                     value={foodRating}
                     onChange={setFoodRating}
