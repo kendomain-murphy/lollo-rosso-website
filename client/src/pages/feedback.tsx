@@ -286,7 +286,7 @@ export default function FeedbackPage() {
                     ref={mobileRef}
                     value={mobile}
                     onChange={(e) => setMobile(e.target.value)}
-                    placeholder="+91 98765 43210"
+                    placeholder="Enter your mobile no."
                     type="tel"
                     data-testid="input-feedback-mobile"
                   />
