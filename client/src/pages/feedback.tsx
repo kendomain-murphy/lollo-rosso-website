@@ -126,7 +126,7 @@ export default function FeedbackPage() {
       formData.append("diningType", diningType);
       formData.append("comments", comments.trim());
 
-      const res = await fetch("/feedback", {
+      const res = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: formData.toString(),
