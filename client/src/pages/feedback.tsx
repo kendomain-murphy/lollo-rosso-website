@@ -12,8 +12,47 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Star, Send, CheckCircle } from "lucide-react";
+import { Star, Send, Check } from "lucide-react";
 import logo from "@assets/LR_NewLogo_TP_ext_1761393901272.png";
+
+function AnimatedCheckmark() {
+  return (
+    <div className="relative flex items-center justify-center" data-testid="animated-checkmark">
+      <svg className="h-24 w-24" viewBox="0 0 100 100">
+        <circle
+          cx="50"
+          cy="50"
+          r="45"
+          fill="none"
+          stroke="#22c55e"
+          strokeWidth="3"
+          strokeDasharray="283"
+          strokeDashoffset="283"
+          className="animate-[drawCircle_0.6s_ease-out_forwards]"
+        />
+        <circle
+          cx="50"
+          cy="50"
+          r="45"
+          fill="#22c55e"
+          opacity="0"
+          className="animate-[fillCircle_0.3s_ease-out_0.6s_forwards]"
+        />
+        <path
+          d="M30 52 L44 66 L70 36"
+          fill="none"
+          stroke="white"
+          strokeWidth="5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeDasharray="60"
+          strokeDashoffset="60"
+          className="animate-[drawCheck_0.4s_ease-out_0.7s_forwards]"
+        />
+      </svg>
+    </div>
+  );
+}
 
 const outlets = [
   "Bodakdev, Ahmedabad",
@@ -151,19 +190,27 @@ export default function FeedbackPage() {
       <div className="min-h-screen bg-background">
         <ReservationNavigation />
         <div className="flex items-center justify-center min-h-screen px-6">
-          <Card className="p-8 max-w-md text-center">
-            <div className="flex justify-center mb-4">
-              <CheckCircle className="h-16 w-16 text-green-500" />
+          <Card className="p-8 max-w-md text-center animate-[fadeInUp_0.5s_ease-out_forwards]">
+            <div className="flex justify-center mb-6">
+              <AnimatedCheckmark />
             </div>
-            <h2 className="font-serif text-2xl font-bold mb-3" data-testid="text-feedback-success-title">
+            <h2
+              className="font-serif text-2xl font-bold mb-3 opacity-0 animate-[fadeIn_0.4s_ease-out_0.9s_forwards]"
+              data-testid="text-feedback-success-title"
+            >
               Thank You!
             </h2>
-            <p className="text-muted-foreground mb-6" data-testid="text-feedback-success-message">
+            <p
+              className="text-muted-foreground mb-6 opacity-0 animate-[fadeIn_0.4s_ease-out_1.1s_forwards]"
+              data-testid="text-feedback-success-message"
+            >
               Your feedback has been submitted successfully. We appreciate you taking the time to help us improve.
             </p>
-            <Button asChild data-testid="button-back-home">
-              <a href="/">Back to Home</a>
-            </Button>
+            <div className="opacity-0 animate-[fadeIn_0.4s_ease-out_1.3s_forwards]">
+              <Button asChild data-testid="button-back-home">
+                <a href="/">Back to Home</a>
+              </Button>
+            </div>
           </Card>
         </div>
       </div>

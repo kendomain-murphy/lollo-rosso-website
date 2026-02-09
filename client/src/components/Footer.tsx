@@ -156,8 +156,8 @@ export function Footer() {
               <li className="pt-2">
                 <Button
                   asChild
-                  variant="outline"
                   size="sm"
+                  className="bg-emerald-500 text-white border-emerald-600 dark:bg-emerald-600 dark:border-emerald-700"
                   data-testid="button-feedback"
                 >
                   <a href="/feedback" target="_blank" rel="noopener noreferrer">
