@@ -11,10 +11,18 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { ChevronDown, BookOpen, Utensils } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export function HeroSection() {
   const [tooltipOpen, setTooltipOpen] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const isMobile = window.innerWidth <= 768;
+    if (videoRef.current) {
+      videoRef.current.preload = isMobile ? "metadata" : "auto";
+    }
+  }, []);
 
   const scrollToSection = (id: string) => {
     // Use requestAnimationFrame to ensure DOM is ready
@@ -76,13 +84,14 @@ export function HeroSection() {
     <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden">
       <div className="absolute inset-0">
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
           poster="/videos/hero-poster.webp"
           className="w-full h-full object-cover"
-          preload="auto"
+          preload="metadata"
         >
           <source src="/videos/hero-walk-in.mp4" type="video/mp4" />
           Your browser does not support the video tag.
