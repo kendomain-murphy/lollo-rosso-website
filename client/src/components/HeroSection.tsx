@@ -80,7 +80,7 @@ export function HeroSection() {
           loop
           muted
           playsInline
-          poster="/videos/hero-poster.jpg"
+          poster="/videos/hero-poster.webp"
           className="w-full h-full object-cover"
           preload="auto"
         >
