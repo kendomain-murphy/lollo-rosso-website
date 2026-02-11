@@ -54,7 +54,7 @@ export function TestimonialCard({
             poster={thumbnail}
             className="w-full h-full object-cover cursor-pointer"
             playsInline
-            preload="auto"
+            preload="metadata"
             onPlay={() => {
               setIsPlaying(true);
               setIsLoading(false);

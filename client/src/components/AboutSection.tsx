@@ -116,6 +116,7 @@ export function AboutSection() {
                 key={index}
                 src={doodle.src}
                 alt=""
+                loading="lazy"
                 className={`absolute w-10 h-10 md:w-12 md:h-12 object-contain opacity-70 pointer-events-none hidden md:block ${doodle.className}`}
                 style={{
                   animation: `${doodle.animation} ${doodle.animation === 'floatHorizontal' ? '6s' : '4s'} ease-in-out infinite`,
@@ -187,6 +188,7 @@ export function AboutSection() {
                         className="w-full h-full object-cover"
                         muted
                         playsInline
+                        preload="metadata"
                         onEnded={handleVideoEnd}
                         data-testid={`video-player-${index}`}
                       />

@@ -119,6 +119,7 @@ export function BarodaMenuSection() {
                     src={page}
                     alt={`${title} Page ${index + 1}`}
                     className="w-full h-auto object-contain"
+                    loading="lazy"
                     data-testid={`img-${testIdPrefix}-page-${index + 1}`}
                   />
                 </div>
@@ -270,6 +271,7 @@ export function BarodaMenuSection() {
                       src={page}
                       alt={`Menu Page ${index + 1}`}
                       className="max-w-full max-h-full object-contain"
+                      loading="lazy"
                       data-testid={`img-modal-baroda-menu-page-${index + 1}`}
                     />
                   </div>

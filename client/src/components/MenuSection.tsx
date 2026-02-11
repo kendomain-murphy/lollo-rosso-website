@@ -138,6 +138,7 @@ export function MenuSection() {
                           src={page}
                           alt={`Bodakdev Menu Page ${index + 1}`}
                           className="w-full h-auto object-contain"
+                          loading="lazy"
                           data-testid={`img-bodakdev-menu-page-${index + 1}`}
                         />
                       </div>
@@ -233,6 +234,7 @@ export function MenuSection() {
                           src={page}
                           alt={`Navrangpura Menu Page ${index + 1}`}
                           className="w-full h-auto object-contain"
+                          loading="lazy"
                           data-testid={`img-navrangpura-menu-page-${index + 1}`}
                         />
                       </div>
@@ -328,6 +330,7 @@ export function MenuSection() {
                           src={page}
                           alt={`Shantigram Menu Page ${index + 1}`}
                           className="w-full h-auto object-contain"
+                          loading="lazy"
                           data-testid={`img-shantigram-menu-page-${index + 1}`}
                         />
                       </div>
@@ -429,6 +432,7 @@ export function MenuSection() {
                       src={page}
                       alt={`Menu Page ${index + 1}`}
                       className="max-w-full max-h-full object-contain"
+                      loading="lazy"
                       data-testid={`img-modal-menu-page-${index + 1}`}
                     />
                   </div>
