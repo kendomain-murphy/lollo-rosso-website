@@ -333,6 +333,7 @@ export default function FeedbackPage() {
                     value={visitDate}
                     onChange={(e) => setVisitDate(e.target.value)}
                     type="date"
+                    max={new Date().toISOString().split("T")[0]}
                     data-testid="input-feedback-visit-date"
                   />
                 </div>
