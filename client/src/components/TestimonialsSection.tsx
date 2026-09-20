@@ -47,6 +47,12 @@ const testimonials = [
     thumbnail: "/videos/testimonials/posters/sports-day-event.jpg",
     platform: "Instagram",
   },
+  {
+    id: 7,
+    videoUrl: "/videos/testimonials/baroda-coffee.mp4",
+    thumbnail: "/videos/testimonials/posters/baroda-coffee.jpg",
+    platform: "Instagram",
+  },
 ];
 
 export function TestimonialsSection() {
